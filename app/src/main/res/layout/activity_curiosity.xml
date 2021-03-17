@@ -5,5 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:screenOrientation="landscape"
-    tools:context=".MainActivity"/>
+    tools:context=".CuriosityActivity">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
