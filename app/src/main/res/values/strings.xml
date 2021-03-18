@@ -2,5 +2,6 @@
     <string name="app_name">RG Potter</string>
     <string name="app_description">Este é o seu RG potter, um APP para aqueles que amam esse universo criado por JK Rolling</string>
     <string name="app_credits">RG Potter só foi possível pela contribuição de Felipe Beserra e Gabrielle Neves, sem contar o desenvolvedor da API que utilizamos, David Barton</string>
-    <string name="app_none"></string>
+    <string name="setup_title">Petrificus Totalis!</string>
+    <string name="setup_subtitle">Aguarde enquanto carregamos algumas coisinhas...</string>
 </resources>
