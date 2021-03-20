@@ -2,12 +2,18 @@ package com.example.rg_potter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Application;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -16,16 +22,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.stream.Stream;
 
 public class SetupActivity extends AppCompatActivity {
 
     ProgressBar pb;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +46,47 @@ public class SetupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setup);
 
         pb = findViewById(R.id.progressBar);
-        new CharactersSetup().execute();
+
+        if(!Global.SAFE_INSTALL){
+
+            Log.d("Error", "Stopped attempted to install again, probably a repercussion error");
+
+            if(!isInternetAvailable()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(SetupActivity.this);
+                builder.setTitle(getResources().getString(R.string.setup_net_title));
+                builder.setMessage(getString(R.string.setup_net_subtitle));
+                builder.setPositiveButton(getString(R.string.setup_net_retry), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Global.SAFE_INSTALL = true;
+                        new CharactersSetup().execute();
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.exit), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        SetupActivity.this.finishAffinity();
+                    }
+                });
+                alertDialog = builder.create();
+                alertDialog.show();
+            }
+
+        }else {
+
+            new CharactersSetup().execute();
+        }
     }
+
+    public boolean isInternetAvailable() {
+        try {
+            InetAddress ipAddr = InetAddress.getByName(Global.API_URL);
+            //You can replace it with your name
+            return !ipAddr.equals("");
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
     class CharactersSetup extends AsyncTask<Void, Integer, Void> {
 
@@ -47,65 +98,105 @@ public class SetupActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            if(Global.SAFE_INSTALL == false){
-                Log.d("Error", "Stopped attemped to install again, probably repercusivenesse");
-                return null;
-            }
+            Global.SAFE_INSTALL = false;
 
-            HttpURLConnection connection = null;
-            BufferedReader reader = null;
+            File file = new File(getFilesDir(), Global.LOCAL_JSON);
 
-            try {
+            Gson gson = new Gson();
 
-                URL url = new URL(Global.API_URL + Global.CHARACTERS_ENDPOINT);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
+            if(!file.exists()){ // Check if file is not already installed
 
-                InputStream stream = connection.getInputStream();
+                HttpURLConnection connection = null;
+                BufferedReader reader = null;
 
-                reader = new BufferedReader(new InputStreamReader(stream));
+                try { // Download json file from API
 
-                StringBuffer buffer = new StringBuffer();
-                String line = "";
+                    URL url = new URL(Global.API_URL + Global.CHARACTERS_ENDPOINT);
 
-                publishProgress(25);
+                    connection = (HttpURLConnection) url.openConnection();
 
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line+"\n");
-                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
-                }
+                    connection.connect();
 
-                publishProgress(50);
+                    publishProgress(15);
 
-                Gson gson = new Gson();
+                    InputStream stream = connection.getInputStream();
 
-                Global.characters = gson.fromJson(buffer.toString(), Character[].class);
+                    publishProgress(25);
 
-                // TODO: DECIDE!!!! OR BIND TO SQL OR BIND TO MEMORY ALL TIMES THAT IT INITIALIZES
+                    String jsonString = convertStreamToString(stream);
 
-                publishProgress(100);
+                    stream.close();
 
-                Global.SAFE_INSTALL = false;
+                    writeToFile(jsonString, SetupActivity.this);
 
-                return null;
+                    return null;
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
-                try {
-                    if (reader != null) {
-                        reader.close();
-                    }
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (connection != null) {
+                        connection.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+
             }
+
+            publishProgress(50);
+
+            try { // Read from local file and bind to Global.characters
+
+                file = new File(getFilesDir(), Global.LOCAL_JSON);
+
+                FileInputStream fin = new FileInputStream(file);
+                String fileJson = convertStreamToString(fin);
+
+                Log.d("JSON loaded: ", fileJson);
+
+                fin.close();
+
+                Global.characters = gson.fromJson(fileJson, Character[].class);
+
+                publishProgress(100);
+                return null;
+
+            }catch (Exception e ) {
+                e.printStackTrace();
+            }
+
             return null;
+        }
+
+        private void writeToFile(String data,Context context) {
+            try {
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(Global.LOCAL_JSON, Context.MODE_PRIVATE));
+                outputStreamWriter.write(data);
+                outputStreamWriter.close();
+            }
+            catch (IOException e) {
+                Log.e("Exception", "File write failed: " + e.toString());
+            }
+        }
+
+        private String convertStreamToString(InputStream is) throws Exception {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            reader.close();
+            return sb.toString();
         }
 
         @Override

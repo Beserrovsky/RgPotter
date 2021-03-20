@@ -4,4 +4,8 @@
     <string name="app_credits">RG Potter só foi possível pela contribuição de Felipe Beserra e Gabrielle Neves, sem contar o desenvolvedor da API que utilizamos, David Barton</string>
     <string name="setup_title">Petrificus Totalis!</string>
     <string name="setup_subtitle">Aguarde enquanto carregamos algumas coisinhas...</string>
+    <string name="setup_net_title">Conexão falha</string>
+    <string name="setup_net_subtitle">Você não consegue se conectar com o servidor, tente verificar sua conexão com a internet!</string>
+    <string name="setup_net_retry">Tentar novamente</string>
+    <string name="exit">Sair</string>
 </resources>

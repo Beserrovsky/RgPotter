@@ -23,19 +23,21 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        if(!Global.SAFE_INSTALL){ //TODO: Change this to verify if app has the content downloaded
+        if(Global.characters != null){
 
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             setContentView(R.layout.activity_main);
 
-            loadTest();
+            start();
         }
         else {
 
@@ -45,8 +47,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void start() {
+
+        Global.user = new User();
+
+        loadTest();
+    }
+
     private void loadTest(){
-        ((TextView) this.findViewById(R.id.teste)).setText("Random character is: " + Global.characters[(int) Math.round(Math.random() * Global.characters.length)].name);
+
+        int randomId = (int) Math.round(Math.random() * Global.characters.length);
+
+        Optional<Character> matchingObject = Stream.of(Global.characters).filter(c-> {return c.id == randomId;}).findFirst();
+
+        ((TextView) this.findViewById(R.id.teste)).setText("Random character is: " + matchingObject.get().name);
     }
 
 }
