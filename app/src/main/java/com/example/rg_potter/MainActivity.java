@@ -48,10 +48,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void start() {
+        Global.users.add(new User(0, this));
 
-        Global.user = new User();
+        loadUser(Global.users.get(Global.user_index));
 
         loadTest();
+    }
+
+    private void loadUser(User u){
+        u.log(this);
+        // TODO: BIND TO UI USER STUFF
     }
 
     private void loadTest(){
@@ -60,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
         Optional<Character> matchingObject = Stream.of(Global.characters).filter(c-> {return c.id == randomId;}).findFirst();
 
-        ((TextView) this.findViewById(R.id.teste)).setText("Random character is: " + matchingObject.get().name);
+        Character c =  matchingObject.get();
+
+        ((TextView) this.findViewById(R.id.teste)).setText("Random character is - Name: " + c.name + ", Hogwarts House: " + new Character.House(c.house , this).Name);
     }
 
 }

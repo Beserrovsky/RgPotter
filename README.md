@@ -1,24 +1,18 @@
 # RG_Potter
 
 Projeto para Android desenvolvido por Felipe Beserra e Gabrielle Neves
-Com implementação da API [HP-API](https://hp-api.herokuapp.com/)
+Com implementação da API [the-harry-potter-database](https://github.com/theDavidBarton/the-harry-potter-database), desenvolvida por David Barton, em um deploy do [heroku](https://dashboard.heroku.com/) 
 
 ## Uso de dados
 
-Nosso projeto coleta e utiliza os seguintes dados do usuário:
+Nosso projeto utiliza os seguintes dados do:
 
-    Classe Usuário:
-	    Nome: string (cosmético)
-	    Sexo: string (cosmético)
-        Imagem de perfil: string (cosmético)
-        Data de nascimento: Date (buscas com API)
-	    Casa de Hogwarts: string (buscas com a API)
-	    Patrono: string (buscas com a API)
-	    Varinha: varinha (buscas com a API)
+    Usuário:
+	    Nome (cosmético)
+	    Sexo (cosmético)
+        Imagem de perfil (cosmético)
+        Data de nascimento (buscas com instância local da API)
+	    Casa de Hogwarts (buscas com instância local da API)
+	    Patrono (buscas com instância local da API)
 
-    Classe Varinha:
-	    Material: string (buscas com a API)
-	    Núcleo: string (buscas com a API)
-	    Comprimento: int (buscas com a API)
-
-Sendo todos salvos localmente, sem vínculo a um servidor oficial.
+Sendo todos salvos localmente, sem vínculo a um servidor oficial!

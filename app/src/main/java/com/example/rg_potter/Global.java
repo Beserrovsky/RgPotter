@@ -1,5 +1,7 @@
 package com.example.rg_potter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 final public class Global {
@@ -13,9 +15,10 @@ final public class Global {
     // GLOBAL VARS
 
     public static boolean SAFE_INSTALL = true;
+    public static int user_index = 0;
 
     // Global Objects
 
     public static Character[] characters;
-    public static User user;
+    public static List<User> users = new ArrayList<User>();
 }

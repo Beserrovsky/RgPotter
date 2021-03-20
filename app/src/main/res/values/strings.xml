@@ -7,5 +7,19 @@
     <string name="setup_net_title">Conexão falha</string>
     <string name="setup_net_subtitle">Você não consegue se conectar com o servidor, tente verificar sua conexão com a internet!</string>
     <string name="setup_net_retry">Tentar novamente</string>
+    <string name="user_default_name">Bruxinho novato</string>
+    <string name="user_default_gender">M</string>
+    <string name="user_default_img"></string>
+    <string name="user_default_house"></string>
+    <string name="user_default_patronus"></string>
+    <string name="house_Gryffindor">Grifinória</string>
+    <string name="house_Hufflepuff">Lufa-Lufa</string>
+    <string name="house_Ravenclaw">Corvinal</string>
+    <string name="house_Slytherin">Sonserina</string>
+    <string name="house_none">Não passou por Hogwarts</string>
+    <string name="gender_m_name">Masculino</string>
+    <string name="gender_f_name">Feminino</string>
+    <string name="gender_m_pronoun">o</string>
+    <string name="gender_f_pronoun">a</string>
     <string name="exit">Sair</string>
 </resources>
