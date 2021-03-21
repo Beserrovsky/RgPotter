@@ -36,8 +36,21 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setContentView(R.layout.activity_main);
 
+        if (Global.characters != null) {
+
+            setContentView(R.layout.activity_main);
+
+            start();
+        } else {
+
+            Intent intent = new Intent(this, SetupActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    private void start() {
         btnregister = (Button) findViewById(R.id.btnCad);
 
         btnmore= (Button) findViewById(R.id.btnMore);

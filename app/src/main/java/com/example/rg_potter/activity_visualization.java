@@ -34,18 +34,7 @@ public class activity_visualization extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_visualization);
-
-        if (Global.characters != null) {
-
-            setContentView(R.layout.activity_main);
-
-            start();
-        } else {
-
-            Intent intent = new Intent(this, SetupActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        start();
     }
 
     private void start () {

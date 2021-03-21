@@ -70,8 +70,7 @@ public class SetupActivity extends AppCompatActivity {
                 alertDialog.show();
             }
 
-        }else {
-
+        } else {
             new CharactersSetup().execute();
         }
     }
@@ -128,6 +127,8 @@ public class SetupActivity extends AppCompatActivity {
                     stream.close();
 
                     writeToFile(jsonString, SetupActivity.this);
+
+                    Thread.sleep(3000);
 
                     return null;
 
