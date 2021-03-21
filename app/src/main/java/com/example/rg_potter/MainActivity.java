@@ -62,6 +62,36 @@ public class MainActivity extends AppCompatActivity {
 
         loadTest();
     }
+  
+     private void start() {
+        btnregister = (Button) findViewById(R.id.btnCad);
+
+        btnmore= (Button) findViewById(R.id.btnMore);
+
+        btnvisu = (Button) findViewById(R.id.btnView);
+
+        btncurio = (Button) findViewById(R.id.btnCuriosity);
+    }
+
+    public void Regi (View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
+    public void Visualization (View view){
+        Intent intent = new Intent(this, activity_visualization.class);
+        startActivity(intent);
+    }
+
+    public void Curiosity (View view){
+        Intent intent = new Intent(this, CuriosityActivity.class);
+        startActivity(intent);
+    }
+
+    public void More (View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://harrypotter.fandom.com/pt-br/wiki/P%C3%A1gina_Principal"));
+        startActivity(intent);
+    }
 
     private void loadUser(User u){
         u.log(this);
