@@ -33,18 +33,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        if(Global.characters != null){
+        if(Global.characters == null){
 
-            setContentView(R.layout.activity_main);
+            File file = new File(getFilesDir(), Global.LOCAL_JSON);
 
-            start();
+            if(file.exists()){
+
+                SetupActivity.loadCharactersJson(this);
+            }else{
+
+                Intent intent = new Intent(this, SetupActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+
         }
-        else {
 
-            Intent intent = new Intent(this, SetupActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        setContentView(R.layout.activity_main);
+        start();
+
     }
 
     private void start() {
