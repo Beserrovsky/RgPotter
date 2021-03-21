@@ -4,14 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:addStatesFromChildren="false"
+    android:animationCache="false"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    android:clickable="false"
+    android:foregroundGravity="top|left"
     android:orientation="horizontal"
     android:screenOrientation="landscape"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/teste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="184dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-69dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addStatesFromChildren="false"
+            android:animationCache="false"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="false"
+            android:foregroundGravity="top|left"
+            android:orientation="horizontal"
+            android:screenOrientation="landscape"
+            tools:context=".MainActivity">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="800px"
+                android:layout_height="200px"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="208dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo2" />
+
+            <Button
+                android:id="@+id/btnCuriosity"
+                android:layout_width="226dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginEnd="96dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:onClick="Curiosity"
+                android:text="@string/text_btn_curiosity"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnCad"
+                android:layout_width="226dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="152dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:onClick="Regi"
+                android:text="@string/text_btn_cad"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnView"
+                android:layout_width="226dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="236dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:onClick="Visualization"
+                android:text="@string/text_btn_view"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnMore"
+                android:layout_width="226dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="236dp"
+                android:layout_marginEnd="96dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:onClick="More"
+                android:text="@string/text_more"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtGreeting"
+                android:layout_width="288dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="84dp"
+                android:background="#FFFFFF"
+                android:text="@string/text_greeting"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
