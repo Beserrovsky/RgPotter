@@ -16,5 +16,3 @@ Nosso projeto utiliza os seguintes dados do:
 	    Patrono (buscas com instância local da API)
 
 Sendo todos salvos localmente, sem vínculo a um servidor oficial!
-
-`Olá`
