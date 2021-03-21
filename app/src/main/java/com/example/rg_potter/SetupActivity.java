@@ -57,8 +57,6 @@ public class SetupActivity extends AppCompatActivity {
 
         Log.d("Connection", "" + isConnectionAvailable());
 
-        } else {
-            new CharactersSetup().execute();
         if(isConnectionAvailable()){
 
             new CharactersSetup().execute(); // Download
@@ -147,10 +145,6 @@ public class SetupActivity extends AppCompatActivity {
         private void downloadJson(){
             if(!Global.SAFE_INSTALL){
 
-
-                    Thread.sleep(3000);
-
-                    return null;
                 Log.d("Error", "Stopped attempted to install again, probably a repercussion error");
                 SetupActivity.this.finishAffinity();
                 return;
@@ -169,7 +163,6 @@ public class SetupActivity extends AppCompatActivity {
                 connection = (HttpURLConnection) url.openConnection();
 
                 connection.connect();
-
 
                 InputStream stream = connection.getInputStream();
 

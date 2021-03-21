@@ -27,7 +27,7 @@ import java.net.URLConnection;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class activity_visualization extends AppCompatActivity {
+public class VisualizationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
