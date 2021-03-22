@@ -22,6 +22,7 @@
     <string name="gender_m_pronoun">o</string>
     <string name="gender_f_pronoun">a</string>
     <string name="exit">Sair</string>
+    <string name="error">Algo deu errado :/</string>
     <string name="text_btn_cad">Cadastrar RG</string>
     <string name="text_btn_view">Visualizar último RG</string>
     <string name="text_btn_curiosity">Curiosidades</string>

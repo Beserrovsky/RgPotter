@@ -54,13 +54,12 @@ public class VisualizationActivity extends AppCompatActivity {
 
         int randomId = (int) Math.round(Math.random() * Global.characters.length);
 
-        Optional<Character> matchingObject = Stream.of(Global.characters).filter(c -> {
-            return c.id == randomId;
-        }).findFirst();
+        Character c = Stream.of(Global.characters)
+                .filter(character -> { return character.id == randomId;})
+                .findFirst()
+                .orElse(null);
 
-        Character c = matchingObject.get();
-
-        ((TextView) this.findViewById(R.id.teste)).setText("Random character is - Name: " + c.name + ", Hogwarts House: " + new Character.House(c.house, this).Name);
+        ((TextView) this.findViewById(R.id.teste)).setText(c!=null? "Random character is - Name: " + c.name + ", Hogwarts House: " + new Character.House(c.house, this).Name : getString(R.string.error));
     }
 
 }
