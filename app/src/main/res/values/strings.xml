@@ -39,9 +39,10 @@
     <string name="patrono">Patrono</string>
 
     <string name="bithday">Data de nascimento</string>
-
+    <string name="text_num">Número do RG</string>
     <string name="text_name">Nome Completo</string>
     <string name="text_sexo">Sexo</string>
+    <string name="text_character">Com qual personagem você mais se parece?</string>
 
     <string name="btn_cad">Salvar</string>
     <string name="btn_photo">Tirar foto</string>
