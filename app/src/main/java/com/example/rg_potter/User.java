@@ -78,6 +78,9 @@ public class User {
 
         db.close();
         dbHelper.close();
+
+        Log.d("User > ", "User loaded from database:");
+        log(ctx);
     }
 
     private void init(Context ctx){
@@ -112,6 +115,9 @@ public class User {
 
         db.close();
         dbHelper.close();
+
+        Log.d("User > ", "User instance saved into database:");
+        log(ctx);
     }
 
     public void log(Context ctx){

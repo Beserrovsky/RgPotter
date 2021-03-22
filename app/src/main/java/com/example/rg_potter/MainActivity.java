@@ -2,18 +2,25 @@ package com.example.rg_potter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.google.gson.Gson;
+
 import java.io.File;
+import java.io.FileInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d("Debug", "Main activity called");
+
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
@@ -23,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
             if(file.exists()){
 
-                SetupActivity.loadCharactersJson(this);
+                Global.loadCharactersJson(this);
             }else{
 
-                Intent intent = new Intent(this, SetupActivity.class);
+                Intent intent = new Intent(MainActivity.this, SetupActivity.class);
                 startActivity(intent);
                 finish();
-                return;
             }
-
         }
+
+        Global.user = new User(0, this);
 
         setContentView(R.layout.activity_main);
     }

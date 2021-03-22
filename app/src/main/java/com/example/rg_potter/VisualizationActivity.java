@@ -38,16 +38,12 @@ public class VisualizationActivity extends AppCompatActivity {
     }
 
     private void start () {
-        Global.users.add(new User(0, this));
-
-        loadUser(Global.users.get(Global.user_index));
-
+        loadUser();
         loadTest();
     }
 
-    private void loadUser (User u){
-        u.log(this);
-        // TODO: BIND TO UI USER STUFF
+    private void loadUser (){
+        // TODO: BIND TO UI Global.user STUFF
     }
 
     private void loadTest () {
