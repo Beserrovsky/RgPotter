@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/txtHouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="308dp"
@@ -92,7 +92,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/txtPatronus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
@@ -107,7 +107,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/img_cadUser"
                 android:layout_width="138dp"
                 android:layout_height="140dp"
                 android:layout_marginStart="35dp"
@@ -117,7 +117,7 @@
                 tools:srcCompat="@android:mipmap/sym_def_app_icon" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnTakePicture"
                 android:layout_width="148dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="35dp"
@@ -125,6 +125,7 @@
                 android:layout_marginBottom="155dp"
                 android:background="#975E33"
                 android:backgroundTint="#975E33"
+                android:onClick="takePhoto"
                 android:text="@string/btn_photo"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +133,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="185dp"
@@ -147,19 +148,21 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="562dp"
+                android:id="@+id/btnSave"
+                android:layout_width="105dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="544dp"
+                android:layout_marginBottom="68dp"
                 android:background="#975E33"
                 android:backgroundTint="#975E33"
+                android:onClick="saveUser"
                 android:text="@string/btn_cad"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/editTextDate2"
+                android:id="@+id/txtBirth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="186dp"
@@ -187,6 +190,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="148dp"
@@ -197,14 +201,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioButtonF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/gender_f_name"
                     android:textColor="#020202" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/radioButtonM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/gender_m_name" />

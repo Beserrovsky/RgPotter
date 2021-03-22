@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.provider.BaseColumns;
 import android.util.Log;
 
@@ -17,7 +18,7 @@ public class User {
     private int Id;
     public String Name;
     private String Gender;
-    public String Img;
+    public Uri Img;
     public Date Birth;
     public String House;
     public String Patronus;
@@ -61,7 +62,7 @@ public class User {
                 this.Id = c.getInt(0);
                 this.Name = c.getString(1);
                 this.Gender = c.getString(2);
-                this.Img = c.getString(3);
+                this.Img = Uri.parse(c.getString(3));
                 this.Birth = new Date(c.getInt(4));
                 this.House = c.getString(5);
                 this.Patronus = c.getString(6);
@@ -136,7 +137,7 @@ public class User {
         ContentValues values = new ContentValues();
         values.put(PotterEntry.COLUMN_NAME_NAME, this.Name == null ? ctx.getString(R.string.user_default_name) : this.Name);
         values.put(PotterEntry.COLUMN_NAME_GENDER, this.Gender == null ? ctx.getString(R.string.user_default_gender) : this.Gender);
-        values.put(PotterEntry.COLUMN_NAME_IMAGE_PATH, this.Img == null ? ctx.getString(R.string.user_default_img) : this.Img);
+        values.put(PotterEntry.COLUMN_NAME_IMAGE_PATH, this.Img == null ? ctx.getString(R.string.user_default_img) : this.Img.toString());
 
         try{
             values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, this.Birth.getTime());
@@ -154,6 +155,10 @@ public class User {
 
     public int getId() {
         return Id;
+    }
+
+    public String getGender_Id(Context ctx) {
+        return this.Gender;
     }
 
     public String getGender(Context ctx) {

@@ -43,7 +43,7 @@
     <string name="text_name">Nome Completo</string>
     <string name="text_sexo">Sexo</string>
 
-    <string name="btn_cad">Criar</string>
+    <string name="btn_cad">Salvar</string>
     <string name="btn_photo">Tirar foto</string>
     <string name="title_sign">Preencha os campos e obtenha seu RG Potter!</string>
 

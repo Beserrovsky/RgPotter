@@ -43,6 +43,10 @@ public class VisualizationActivity extends AppCompatActivity {
     }
 
     private void loadUser (){
+
+        Global.user.House = "Hufflepuff";
+        Global.user.save(this);
+
         // TODO: BIND TO UI Global.user STUFF
     }
 

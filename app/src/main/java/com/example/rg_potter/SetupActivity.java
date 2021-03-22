@@ -37,6 +37,7 @@ public class SetupActivity extends AppCompatActivity {
 
         pb = findViewById(R.id.progressBar);
 
+
         new ConnectionCheck().execute();
     }
 

@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Global.user = new User(0, this);
-
         setContentView(R.layout.activity_main);
     }
 
