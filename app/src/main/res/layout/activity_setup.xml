@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".SetupActivity">
 
     <TextView
@@ -15,6 +17,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="196dp"
         android:text="@string/setup_subtitle"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +33,10 @@
         android:layout_marginEnd="65dp"
         android:layout_marginBottom="151dp"
         android:animationResolution="@android:integer/config_longAnimTime"
+        android:backgroundTint="#000000"
         android:max="100"
         android:progress="0"
+        android:secondaryProgressTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +65,7 @@
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="269dp"
         android:text="@string/setup_title"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

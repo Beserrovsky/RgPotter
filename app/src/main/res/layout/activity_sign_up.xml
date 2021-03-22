@@ -8,189 +8,228 @@
     tools:context=".SignUpActivity">
 
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="#FFFFFF">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editTextDate2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="49dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="85dp"
-                android:layout_marginBottom="75dp"
-                android:ems="10"
-                android:inputType="date"
-                app:layout_constraintBottom_toTopOf="@+id/textView22"
-                app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-                app:layout_constraintStart_toEndOf="@+id/button3"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="93dp"
-                android:layout_marginEnd="416dp"
-                android:text="TextView"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="262dp"
+                android:layout_marginEnd="638dp"
+                android:layout_marginBottom="114dp"
+                android:text="@string/patrono"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="84dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toStartOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="148dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="469dp"
-                android:text="Button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="98dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="211dp"
-                android:text="Button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="92dp"
-                android:layout_marginEnd="34dp"
-                app:layout_constraintEnd_toStartOf="@+id/textView18"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="238dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="123dp"
-                android:layout_marginEnd="121dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="461dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginBottom="318dp"
+                android:text="@string/text_sexo"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="63dp"
-                android:layout_marginEnd="276dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toStartOf="@+id/textView22"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                android:layout_marginStart="183dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginBottom="318dp"
+                android:text="@string/text_name"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="308dp"
+                android:layout_marginTop="284dp"
+                android:layout_marginBottom="66dp"
+                android:backgroundTint="#000000"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="39dp"
-                android:layout_marginEnd="243dp"
-                android:text="TextView"
+                android:layout_marginStart="337dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="336dp"
+                android:layout_marginBottom="349dp"
+                android:text="@string/title_sign"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="284dp"
+                android:layout_marginBottom="71dp"
+                android:backgroundTint="#000000"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="138dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="197dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:srcCompat="@android:mipmap/sym_def_app_icon" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="148dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="205dp"
+                android:layout_marginBottom="155dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:text="@string/btn_photo"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="185dp"
+                android:layout_marginTop="77dp"
+                android:layout_marginBottom="273dp"
+                android:backgroundTint="#000000"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="562dp"
+                android:background="#975E33"
+                android:backgroundTint="#975E33"
+                android:text="@string/btn_cad"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextDate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="186dp"
+                android:layout_marginTop="153dp"
+                android:layout_marginEnd="336dp"
+                android:backgroundTint="#020202"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="185dp"
+                android:layout_marginTop="130dp"
+                android:layout_marginEnd="421dp"
+                android:layout_marginBottom="251dp"
+                android:text="@string/bithday"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="148dp"
                 android:layout_height="113dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20">
+                android:layout_marginStart="461dp"
+                android:layout_marginTop="85dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="@string/gender_f_name"
+                    android:textColor="#020202" />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="@string/gender_m_name" />
             </RadioGroup>
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="75dp"
-                android:layout_marginEnd="246dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+                android:layout_marginStart="295dp"
+                android:layout_marginTop="265dp"
+                android:text="@string/house"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="49dp"
-                android:text="Button"
-                app:layout_constraintEnd_toStartOf="@+id/editTextDate2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="116dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName7"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="53dp"
+                android:layout_marginBottom="346dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

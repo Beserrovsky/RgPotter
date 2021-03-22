@@ -23,14 +23,28 @@
     <string name="gender_f_pronoun">a</string>
     <string name="exit">Sair</string>
     <string name="error">Algo deu errado :/</string>
+
     <string name="text_btn_cad">Cadastrar RG</string>
     <string name="text_btn_view">Visualizar último RG</string>
-    <string name="text_btn_curiosity">Curiosidades</string>
     <string name="text_more">Saiba mais sobre a Saga</string>
+
     <string name="text_greeting">Olá, caro estudante de Hogwarts! Em que podemos te ajudar hoje? </string>
+
     <string name="text_menu">Menu</string>
-    <string name="title_curiosity">Curiosidades</string>
-    <string name="house_curiosity">Casa de Hogwarts</string>
-    <string name="patrono_curiosity">Patrono</string>
-    <string name="bithday_curiosity">Data de nascimento</string>
+
+    <string name="text_curiosity">Curiosidades</string>
+
+    <string name="house">Casa de Hogwarts</string>
+
+    <string name="patrono">Patrono</string>
+
+    <string name="bithday">Data de nascimento</string>
+
+    <string name="text_name">Nome Completo</string>
+    <string name="text_sexo">Sexo</string>
+
+    <string name="btn_cad">Criar</string>
+    <string name="btn_photo">Tirar foto</string>
+    <string name="title_sign">Preencha os campos e obtenha seu RG Potter!</string>
+
 </resources>

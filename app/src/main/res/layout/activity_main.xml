@@ -40,24 +40,12 @@
                 android:layout_marginStart="208dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="208dp"
+                android:layout_marginBottom="229dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/logo2" />
-
-            <Button
-                android:id="@+id/btnCuriosity"
-                android:layout_width="226dp"
-                android:layout_height="68dp"
-                android:layout_marginTop="152dp"
-                android:layout_marginEnd="96dp"
-                android:background="#975E33"
-                android:backgroundTint="#975E33"
-                android:onClick="Curiosity"
-                android:text="@string/text_btn_curiosity"
-                android:textColor="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnCad"
@@ -65,11 +53,15 @@
                 android:layout_height="68dp"
                 android:layout_marginStart="96dp"
                 android:layout_marginTop="152dp"
+                android:layout_marginEnd="409dp"
+                android:layout_marginBottom="93dp"
                 android:background="#975E33"
                 android:backgroundTint="#975E33"
                 android:onClick="Regi"
                 android:text="@string/text_btn_cad"
                 android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,13 +69,17 @@
                 android:id="@+id/btnView"
                 android:layout_width="226dp"
                 android:layout_height="68dp"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="236dp"
+                android:layout_marginStart="410dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginEnd="96dp"
+                android:layout_marginBottom="93dp"
                 android:background="#975E33"
                 android:backgroundTint="#975E33"
                 android:onClick="Visualization"
                 android:text="@string/text_btn_view"
                 android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,14 +87,17 @@
                 android:id="@+id/btnMore"
                 android:layout_width="226dp"
                 android:layout_height="68dp"
-                android:layout_marginTop="236dp"
-                android:layout_marginEnd="96dp"
+                android:layout_marginStart="252dp"
+                android:layout_marginTop="245dp"
+                android:layout_marginEnd="253dp"
                 android:background="#975E33"
                 android:backgroundTint="#975E33"
                 android:onClick="More"
                 android:text="@string/text_more"
                 android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -107,12 +106,16 @@
                 android:layout_height="56dp"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="84dp"
+                android:layout_marginEnd="243dp"
+                android:layout_marginBottom="173dp"
                 android:background="#FFFFFF"
                 android:text="@string/text_greeting"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
