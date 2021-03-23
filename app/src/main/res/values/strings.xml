@@ -25,7 +25,7 @@
     <string name="error">Algo deu errado :/</string>
 
     <string name="text_btn_cad">Cadastrar RG</string>
-    <string name="text_btn_view">Visualizar último RG</string>
+    <string name="text_btn_view">Iniciar RG Potter</string>
     <string name="text_more">Saiba mais sobre a Saga</string>
 
     <string name="text_greeting">Olá, caro estudante de Hogwarts! Em que podemos te ajudar hoje? </string>
@@ -44,8 +44,11 @@
     <string name="text_sexo">Sexo</string>
     <string name="text_character">Com qual personagem você mais se parece?</string>
 
+    <string name="btn_birth">Selecionar</string>
     <string name="btn_cad">Salvar</string>
     <string name="btn_photo">Tirar foto</string>
     <string name="title_sign">Preencha os campos e obtenha seu RG Potter!</string>
+
+    <string name="saved">Alterações salvas</string>
 
 </resources>

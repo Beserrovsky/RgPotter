@@ -1,9 +1,14 @@
 package com.example.rg_potter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -15,17 +20,26 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 
 public class SignUpActivity extends AppCompatActivity {
 
     private static final int TAKE_PICTURE = 1;
     private Uri imageUri;
+
+    private Date date = Global.user.Birth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +53,16 @@ public class SignUpActivity extends AppCompatActivity {
     private void loadUser(){
 
         ((EditText) findViewById(R.id.txtName)).setText(Global.user.Name);
-        ((EditText) findViewById(R.id.txtBirth)).setText(Global.user.Birth.toString());
         ((EditText) findViewById(R.id.txtPatronus)).setText(Global.user.Patronus);
         // TODO: CREATE HOUSE AND BIND TO SPINNER
 
-        if(Global.user.getGender_Id(this).equals("M")){
+        Log.d("Debug", Global.user.getGender_Id(this));
+
+        if(Global.user.getGender_Id(this).equalsIgnoreCase("M")){
+            ((RadioButton) findViewById(R.id.radioButtonF)).setChecked(false);
             ((RadioButton) findViewById(R.id.radioButtonM)).setChecked(true);
         }else{
+            ((RadioButton) findViewById(R.id.radioButtonM)).setChecked(false);
             ((RadioButton) findViewById(R.id.radioButtonF)).setChecked(true);
         }
 
@@ -63,9 +80,28 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void saveUser(View view){
 
+        Global.user.Name = ((EditText) findViewById(R.id.txtName)).getText().toString();
+        Global.user.Birth = this.date;
+        Global.user.Patronus = ((EditText) findViewById(R.id.txtPatronus)).getText().toString();
+        Global.user.setGender(((RadioButton) findViewById(R.id.radioButtonF)).isChecked()? User.GenderEnum.F : User.GenderEnum.M);
+
         // TODO: BIND UI TO USER ATTRS
 
         Global.user.save(this);
+
+        Global.user = new User(0, this);
+
+        Context context = getApplicationContext();
+        CharSequence text = this.getString(R.string.saved);
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+    }
+
+    public void selectDate(View view){
+        // TODO: DIALOGUE FOR DATE
     }
 
     public void takePhoto(View view){
@@ -112,5 +148,6 @@ public class SignUpActivity extends AppCompatActivity {
         drawable.draw(canvas);
         return bitmap;
     }
+
 
 }

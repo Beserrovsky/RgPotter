@@ -129,7 +129,9 @@ public class User {
         Log.d("User > ", "Gender: " + this.getGender(ctx));
         Log.d("User > ", "Img: " + this.Img);
         Log.d("User > ", "Birth: " + this.Birth.toString());
-        Log.d("User > ", "House: " + new Character.House(this.House, ctx).Name);
+        Log.d("User > ", "House_ID: " + this.House);
+        Log.d("User > ", "House_NAME: " + new Character.House(this.House, ctx).Name);
+        Log.d("User > ", "House_COLOR: " + ctx.getColor(new Character.House(this.House, ctx).Color));
         Log.d("User > ", "Patronous: " + this.Patronus);
     }
 

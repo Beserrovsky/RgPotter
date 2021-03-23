@@ -116,26 +116,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="595dp"
-        android:layout_marginTop="318dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="45dp"
-        android:background="#975E33"
-        android:backgroundTint="#975E33"
-        android:onClick="Menu"
-        android:text="@string/text_menu"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"

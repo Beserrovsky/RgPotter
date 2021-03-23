@@ -25,7 +25,6 @@ final public class Global {
     // GLOBAL VARS
 
     public static boolean SAFE_INSTALL = true;
-    public static int user_index = 0;
 
     // Global Objects
 

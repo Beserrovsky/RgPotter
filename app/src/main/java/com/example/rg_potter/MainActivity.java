@@ -53,15 +53,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Curiosity (View view){
-        Intent intent = new Intent(this, CuriosityActivity.class);
-        startActivity(intent);
-    }
-
     public void More (View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://harrypotter.fandom.com/pt-br/wiki/P%C3%A1gina_Principal"));
         startActivity(intent);
     }
-
 
 }
