@@ -8,25 +8,42 @@
     tools:context=".SignUpActivity">
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
-        android:text="@string/patrono"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/txtPatronus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:text="@string/text_sexo"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="461dp"
-        tools:layout_editor_absoluteY="66dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="149dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20">
+
+        <RadioButton
+            android:id="@+id/radioButtonF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_f_name"
+            android:textColor="#020202" />
+
+        <RadioButton
+            android:id="@+id/radioButtonM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_m_name"
+            tools:layout_editor_absoluteX="320dp"
+            tools:layout_editor_absoluteY="165dp" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView22"
@@ -41,20 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041" />
-
-    <EditText
-        android:id="@+id/txtPatronus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#000000"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
 
     <EditText
         android:id="@+id/txtName"
@@ -77,10 +80,12 @@
         android:layout_marginTop="32dp"
         android:text="@string/text_name"
         android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+        app:layout_constraintTop_toBottomOf="@+id/divider5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnSave"
@@ -91,64 +96,86 @@
         android:onClick="saveUser"
         android:text="@string/btn_cad"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="544dp"
-        tools:layout_editor_absoluteY="294dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.859" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
         android:text="@string/bithday"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPatronus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <Button
         android:id="@+id/btnBirth"
         android:layout_width="148dp"
         android:layout_height="35dp"
+        android:layout_marginTop="4dp"
         android:background="#975E33"
         android:backgroundTint="#975E33"
         android:onClick="selectDate"
         android:text="@string/btn_birth"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="208dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="149dp"
-        android:layout_height="94dp"
-        tools:layout_editor_absoluteX="461dp"
-        tools:layout_editor_absoluteY="85dp">
-
-        <RadioButton
-            android:id="@+id/radioButtonF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_f_name"
-            android:textColor="#020202" />
-
-        <RadioButton
-            android:id="@+id/radioButtonM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_m_name" />
-    </RadioGroup>
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:text="@string/patrono"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/house"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerHouses"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+    <Spinner
+        android:id="@+id/spinnerHouses"
+        android:layout_width="210dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <View
         android:id="@+id/divider5"
@@ -160,16 +187,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView22"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
-
-    <Spinner
-        android:id="@+id/spinnerHouses"
-        android:layout_width="210dp"
-        android:layout_height="41dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

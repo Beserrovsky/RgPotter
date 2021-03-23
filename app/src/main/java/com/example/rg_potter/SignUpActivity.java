@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -37,11 +38,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class SignUpActivity extends AppCompatActivity {
-
-    private static final int TAKE_PICTURE = 1;
-    private Uri imageUri;
 
     private Date date = Global.user.Birth;
 
@@ -53,6 +52,15 @@ public class SignUpActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_sign_up);
 
+        loadUser();
+    }
+
+    private void loadUser(){
+
+        ((EditText) findViewById(R.id.txtName)).setText(Global.user.Name);
+        ((EditText) findViewById(R.id.txtPatronus)).setText(Global.user.Patronus);
+
+
         String[] houses = { this.getString(R.string.house_Gryffindor), this.getString(R.string.house_Hufflepuff), this.getString(R.string.house_Ravenclaw), this.getString(R.string.house_Slytherin), this.getString(R.string.house_none)};
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
@@ -63,19 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .simple_spinner_dropdown_item);
 
         ((Spinner) findViewById(R.id.spinnerHouses)).setAdapter(spinnerArrayAdapter);
-
-        loadUser();
-    }
-
-    private void loadUser(){
-
-        ((EditText) findViewById(R.id.txtName)).setText(Global.user.Name);
-        ((EditText) findViewById(R.id.txtPatronus)).setText(Global.user.Patronus);
-        // TODO: CREATE HOUSE AND BIND TO SPINNER
-
         ((Spinner) findViewById(R.id.spinnerHouses)).setSelection(Global.user.House.SpinnerIndex);
-
-        Log.d("Debug", Global.user.getGender_Id(this));
 
         if(Global.user.getGender_Id(this).equalsIgnoreCase("M")){
             ((RadioButton) findViewById(R.id.radioButtonF)).setChecked(false);
@@ -121,7 +117,36 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void selectDate(View view){
-        // TODO: DIALOGUE FOR DATE
+        showDialog(DATE_DIALOG_ID);
     }
+
+    static final int DATE_DIALOG_ID = 0;
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        Calendar c = Calendar.getInstance();
+
+        int y = c.get(Calendar.YEAR);
+        int m = c.get(Calendar.MONTH);
+        int d = c.get(Calendar.DAY_OF_MONTH);
+
+        switch (id) {
+            case DATE_DIALOG_ID:
+                return new DatePickerDialog(this, mDateSetListener, y, m,
+                        d);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener =
+            new DatePickerDialog.OnDateSetListener() {
+                public void onDateSet(DatePicker view, int y, int m,
+                                      int d) {
+
+                    date = new GregorianCalendar(y, m, d).getTime();
+
+                    Log.d("Debug date", date.toString());
+                }
+            };
 
 }

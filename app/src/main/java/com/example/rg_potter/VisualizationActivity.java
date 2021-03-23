@@ -57,12 +57,16 @@ public class VisualizationActivity extends AppCompatActivity {
 
     private void loadUser (){
 
-        SimpleDateFormat DateFor = new SimpleDateFormat("dd-MM-yy");
+        SimpleDateFormat DateFor = new SimpleDateFormat("dd-MM-yyyy");
+
+        String formatedDate = DateFor.format(Global.user.Birth.getTime());
+        Log.d("Date", Global.user.Birth.toString());
+        Log.d("Date", formatedDate);
 
         ((TextView) findViewById(R.id.txtsexo2)).setText(Global.user.getGender(this));
-        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1));
-        ((TextView) findViewById(R.id.txtbirthday2)).setText(DateFor.format(Global.user.Birth.getTime()));
-        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1));
+        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name.length() > 0? Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1) : "");
+        ((TextView) findViewById(R.id.txtbirthday2)).setText(formatedDate);
+        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus.length() > 0? Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1) : "");
         ((TextView) findViewById(R.id.txthouse2)).setText(Global.user.House.Name == this.getString(R.string.house_none)? "" : Global.user.House.Name);
 
        ((ImageView) findViewById(R.id.imgHouse)).setImageBitmap(drawableToBitmap(getDrawable(Global.user.House.Image)));

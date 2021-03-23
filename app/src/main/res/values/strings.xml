@@ -42,7 +42,14 @@
     <string name="text_num">Número do RG</string>
     <string name="text_name">Nome</string>
     <string name="text_sexo">Sexo</string>
-    <string name="text_character">Com qual personagem você mais se parece?</string>
+
+    <string name="qst_lookLike">Com qual personagem você mais se parece?</string>
+    <string name="qst_sameHouse">Um personagem da sua casa!</string>
+    <string name="qst_birthday">O personagem com o aniversário mais próximo do seu!</string>
+    <string name="qst_patronus">Um personagem com o seu patrono! (inglês)</string>
+
+    <string name="no_result">Infelizmente não achei ninguém :(</string>
+    <string name="no_patronus">Infelizmente não achei ninguém, lembre-se de usar seu patrono em inglês!</string>
 
     <string name="btn_birth">Selecionar</string>
     <string name="btn_cad">Salvar</string>

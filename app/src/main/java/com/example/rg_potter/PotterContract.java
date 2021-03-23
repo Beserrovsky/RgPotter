@@ -27,7 +27,7 @@ final public class PotterContract {
                     PotterEntry.COLUMN_NAME_NAME + " TEXT," +
                     PotterEntry.COLUMN_NAME_GENDER + " TEXT," +
                     PotterEntry.COLUMN_NAME_IMAGE_PATH + " TEXT," +
-                    PotterEntry.COLUMN_NAME_BIRTH_DATE + " INTEGER," +
+                    PotterEntry.COLUMN_NAME_BIRTH_DATE + " TEXT," +
                     PotterEntry.COLUMN_NAME_HOUSE + " TEXT," +
                     PotterEntry.COLUMN_NAME_PATRONUS+ " TEXT)";
 
@@ -36,7 +36,7 @@ final public class PotterContract {
 
     public static class PotterContractDbHelper extends SQLiteOpenHelper {
         // If you change the database schema, you must increment the database version.
-        public static final int DATABASE_VERSION = 1;
+        public static final int DATABASE_VERSION = 2;
         public static final String DATABASE_NAME = "Potter.db";
 
         public PotterContractDbHelper(Context context) {

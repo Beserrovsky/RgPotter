@@ -63,7 +63,7 @@ public class User {
                 this.Name = c.getString(1);
                 this.Gender = c.getString(2);
                 this.Img = Uri.parse(c.getString(3));
-                this.Birth = new Date(c.getInt(4));
+                this.Birth = new Date((Long.valueOf(c.getString(4))));
                 this.House = new Character.House(c.getString(5), ctx);
                 this.Patronus = c.getString(6);
 
@@ -141,12 +141,12 @@ public class User {
         values.put(PotterEntry.COLUMN_NAME_IMAGE_PATH, this.Img == null ? ctx.getString(R.string.user_default_img) : this.Img.toString());
 
         try{
-            values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, this.Birth.getTime());
+            values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, "" + this.Birth.getTime());
         }catch(Exception e){
-            values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, 0);
+            values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, "" + 0);
         }
 
-        values.put(PotterEntry.COLUMN_NAME_HOUSE, this.House.house_id == null ? ctx.getString(R.string.user_default_house) : this.House.house_id);
+        values.put(PotterEntry.COLUMN_NAME_HOUSE, this.House == null ? ctx.getString(R.string.user_default_house) : this.House.house_id);
         values.put(PotterEntry.COLUMN_NAME_PATRONUS, this.Patronus == null ? ctx.getString(R.string.user_default_patronus) : this.Patronus);
 
         return values;
