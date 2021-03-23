@@ -10,8 +10,8 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="702dp"
-        android:layout_height="382dp"
+        android:layout_width="613dp"
+        android:layout_height="260dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -23,91 +23,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="700dp"
-        android:layout_height="380dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="618dp"
+        android:layout_height="289dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.485">
+        app:layout_constraintVertical_bias="0.517">
 
         <ImageView
-            android:id="@+id/imgRg"
+            android:id="@+id/imgHouse"
             android:layout_width="159dp"
             android:layout_height="185dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="188dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintHorizontal_bias="0.034"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.47" />
-
-        <ImageButton
-            android:id="@+id/btnEdit"
-            android:layout_width="61dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="Edit"
-            android:src="@android:drawable/ic_menu_edit"
-            android:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.813"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView3"
-            app:layout_constraintVertical_bias="0.055" />
-
-        <ImageButton
-            android:id="@+id/btnCuriosity"
-            android:layout_width="67dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="22dp"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="Curiosity"
-            android:src="@android:drawable/ic_menu_info_details"
-            android:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.777"
-            app:layout_constraintStart_toEndOf="@+id/btnEdit"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView3"
             app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/txtCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="88dp"
-            android:text="@string/text_character"
-            android:textColor="#000000"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.033"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgRg" />
-
-        <TextView
-            android:id="@+id/txtcharacter2"
-            android:layout_width="116dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="16dp"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.027"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCharacter" />
 
         <ScrollView
             android:id="@+id/scrollView3"
-            android:layout_width="478dp"
-            android:layout_height="253dp"
+            android:layout_width="396dp"
+            android:layout_height="229dp"
             android:layout_marginStart="122dp"
             android:layout_marginEnd="24dp"
             android:backgroundTint="@android:color/darker_gray"
@@ -115,132 +56,36 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imgRg"
+            app:layout_constraintStart_toEndOf="@+id/imgHouse"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.125">
+            app:layout_constraintVertical_bias="0.666">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtnum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/text_num"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.04"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtpatrono2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtpatrono"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txthouse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="64dp"
-                    android:text="@string/house"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.043"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtname" />
-
-                <TextView
                     android:id="@+id/txtsexo2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="72dp"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/txtSexo"
-                    app:layout_constraintTop_toBottomOf="@+id/txtpatrono" />
-
-                <TextView
-                    android:id="@+id/txtname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="64dp"
-                    android:text="@string/text_name"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.041"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtnum" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem" />
 
                 <TextView
                     android:id="@+id/txtbirthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="152dp"
                     android:text="@string/bithday"
                     android:textColor="#000000"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.892"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSexo" />
-
-                <TextView
-                    android:id="@+id/txtname2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="64dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtname"
-                    app:layout_constraintTop_toBottomOf="@+id/txtnum" />
-
-                <TextView
-                    android:id="@+id/txtbirthday2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.658"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtbirthday" />
-
-                <TextView
-                    android:id="@+id/txtnum2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@+id/txtnum"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtpatrono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/patrono"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.733"
+                    app:layout_constraintHorizontal_bias="0.055"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -248,27 +93,108 @@
                     android:id="@+id/txtSexo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="76dp"
                     android:text="@string/text_sexo"
                     android:textColor="#000000"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.704"
+                    app:layout_constraintHorizontal_bias="0.043"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtpatrono" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txthouse2"
+                    android:id="@+id/txtpatrono2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="112dp"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@+id/txthouse"
-                    app:layout_constraintTop_toBottomOf="@+id/txtname" />
+                    app:layout_constraintStart_toEndOf="@+id/txtpatrono"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem" />
+
+                <TextView
+                    android:id="@+id/txtpatrono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="114dp"
+                    android:text="@string/patrono"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.045"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtbirthday2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="148dp"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtbirthday"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/date/ddmmyy" />
+
+                <TextView
+                    android:id="@+id/txtname2"
+                    android:layout_width="369dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/txthouse2"
+            android:layout_width="82dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgHouse"
+            tools:text="@tools:sample/lorem" />
+
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="61dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@android:color/primary_text_dark"
+            android:onClick="Edit"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="@color/ic_launcher_text_load_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.815"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnCuriosity"
+            android:layout_width="67dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="Curiosity"
+            android:src="@android:drawable/ic_menu_info_details"
+            android:tint="@android:color/primary_text_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnEdit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

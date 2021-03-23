@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -12,6 +16,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 import java.io.BufferedInputStream;
@@ -40,57 +45,29 @@ public class VisualizationActivity extends AppCompatActivity {
         start();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        start();
+    }
+
     private void start () {
         loadUser();
     }
 
     private void loadUser (){
 
-        Global.user.House = "Hufflepuff";
-        Global.user.save(this);
+        SimpleDateFormat DateFor = new SimpleDateFormat("dd-MM-yy");
 
-
-        Character.House house = new Character.House(Global.user.House, this);
-
-        Random generator = new Random(Global.user.getId());
-        int num = (int) Math.round(generator.nextDouble() * (99999999));
-
-        SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
-
-        ((TextView) findViewById(R.id.txtnum2)).setText(String.valueOf(num));
         ((TextView) findViewById(R.id.txtsexo2)).setText(Global.user.getGender(this));
-        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name);
+        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1));
         ((TextView) findViewById(R.id.txtbirthday2)).setText(DateFor.format(Global.user.Birth.getTime()));
-        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus);
-        ((TextView) findViewById(R.id.txthouse2)).setText(house.Name);
+        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1));
+        ((TextView) findViewById(R.id.txthouse2)).setText(Global.user.House.Name == this.getString(R.string.house_none)? "" : Global.user.House.Name);
 
-        // TODO: MAKE SEARCH AND BIND IT
+       ((ImageView) findViewById(R.id.imgHouse)).setImageBitmap(drawableToBitmap(getDrawable(Global.user.House.Image)));
 
-        Character character = Stream.of(Global.characters)
-                .filter(c -> {
-                    Log.d("Gender", c.gender==null? "" : c.gender);
-
-                    boolean sameGender = c.gender != null? (c.gender.equalsIgnoreCase("male") && Global.user.getGender_Id(this).equalsIgnoreCase("m")) || (c.gender.equalsIgnoreCase("female") && Global.user.getGender_Id(this).equalsIgnoreCase("f")): false;
-
-                    return (new Character.House(c.house, this).house_id).equalsIgnoreCase(Global.user.House) && sameGender;
-                })
-                .findFirst()
-                .orElse(null);
-
-        if(character==null){ // Well, better lie than nothing...
-            int randomId = (int) Math.round(generator.nextDouble() * Global.characters.length);
-
-            character = Stream.of(Global.characters)
-                    .filter(c -> { return c.id == randomId;})
-                    .findFirst()
-                    .orElse(null);
-        }
-
-        String search = character!=null? character.name + ", que em hogwarts era da: " + new Character.House(character.house, this).Name : getString(R.string.error);
-
-       ((TextView) findViewById(R.id.txtcharacter2)).setText(search);
-
-       findViewById(R.id.frame).setBackgroundColor(this.getColor(house.Color));
+       findViewById(R.id.frame).setBackgroundColor(getColor(Global.user.House.Color));
 
     }
 
@@ -102,6 +79,28 @@ public class VisualizationActivity extends AppCompatActivity {
     public void Curiosity (View view){
         Intent intent = new Intent(this, CuriosityActivity.class);
         startActivity(intent);
+    }
+
+    public static Bitmap drawableToBitmap (Drawable drawable) {
+        Bitmap bitmap = null;
+
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            if(bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap();
+            }
+        }
+
+        if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        }
+
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
 }

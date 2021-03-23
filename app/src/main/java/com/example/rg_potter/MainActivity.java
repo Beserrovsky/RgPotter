@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void Regi (View view){
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
-    }
-
     public void Visualization (View view){
         Intent intent = new Intent(this, VisualizationActivity.class);
         startActivity(intent);

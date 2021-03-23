@@ -20,7 +20,7 @@ public class User {
     private String Gender;
     public Uri Img;
     public Date Birth;
-    public String House;
+    public Character.House House;
     public String Patronus;
 
 
@@ -64,7 +64,7 @@ public class User {
                 this.Gender = c.getString(2);
                 this.Img = Uri.parse(c.getString(3));
                 this.Birth = new Date(c.getInt(4));
-                this.House = c.getString(5);
+                this.House = new Character.House(c.getString(5), ctx);
                 this.Patronus = c.getString(6);
 
                 c.close();
@@ -129,9 +129,8 @@ public class User {
         Log.d("User > ", "Gender: " + this.getGender(ctx));
         Log.d("User > ", "Img: " + this.Img);
         Log.d("User > ", "Birth: " + this.Birth.toString());
-        Log.d("User > ", "House_ID: " + this.House);
-        Log.d("User > ", "House_NAME: " + new Character.House(this.House, ctx).Name);
-        Log.d("User > ", "House_COLOR: " + ctx.getColor(new Character.House(this.House, ctx).Color));
+        Log.d("User > ", "House_ID: " + this.House.house_id);
+        Log.d("User > ", "House_NAME: " + this.House.Name);
         Log.d("User > ", "Patronous: " + this.Patronus);
     }
 
@@ -147,7 +146,7 @@ public class User {
             values.put(PotterEntry.COLUMN_NAME_BIRTH_DATE, 0);
         }
 
-        values.put(PotterEntry.COLUMN_NAME_HOUSE, this.House == null ? ctx.getString(R.string.user_default_house) : this.House);
+        values.put(PotterEntry.COLUMN_NAME_HOUSE, this.House.house_id == null ? ctx.getString(R.string.user_default_house) : this.House.house_id);
         values.put(PotterEntry.COLUMN_NAME_PATRONUS, this.Patronus == null ? ctx.getString(R.string.user_default_patronus) : this.Patronus);
 
         return values;

@@ -37,7 +37,6 @@ public class SetupActivity extends AppCompatActivity {
 
         pb = findViewById(R.id.progressBar);
 
-
         new ConnectionCheck().execute();
     }
 
@@ -78,7 +77,7 @@ public class SetupActivity extends AppCompatActivity {
             return null;
         }
 
-        private boolean isConnectionAvailable() {
+        public boolean isConnectionAvailable() {
             ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo nInfo = cm.getActiveNetworkInfo();
             return (nInfo != null && nInfo.isAvailable() && nInfo.isConnected());

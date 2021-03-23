@@ -23,14 +23,18 @@ import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -43,9 +47,22 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Debug", "SignUp activity called");
+
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_sign_up);
+
+        String[] houses = { this.getString(R.string.house_Gryffindor), this.getString(R.string.house_Hufflepuff), this.getString(R.string.house_Ravenclaw), this.getString(R.string.house_Slytherin), this.getString(R.string.house_none)};
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item,
+                        houses); //selected item will look like a spinner set from XML
+
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout
+                .simple_spinner_dropdown_item);
+
+        ((Spinner) findViewById(R.id.spinnerHouses)).setAdapter(spinnerArrayAdapter);
 
         loadUser();
     }
@@ -56,6 +73,8 @@ public class SignUpActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.txtPatronus)).setText(Global.user.Patronus);
         // TODO: CREATE HOUSE AND BIND TO SPINNER
 
+        ((Spinner) findViewById(R.id.spinnerHouses)).setSelection(Global.user.House.SpinnerIndex);
+
         Log.d("Debug", Global.user.getGender_Id(this));
 
         if(Global.user.getGender_Id(this).equalsIgnoreCase("M")){
@@ -65,17 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
             ((RadioButton) findViewById(R.id.radioButtonM)).setChecked(false);
             ((RadioButton) findViewById(R.id.radioButtonF)).setChecked(true);
         }
-
-        if(Global.user.Img==null){
-
-            ((ImageView) findViewById(R.id.img_cadUser)).setImageBitmap(drawableToBitmap(this.getResources().getDrawable(R.drawable.ic_launcher_foreground)));
-        }else{
-
-            Bitmap bmImg = BitmapFactory.decodeFile(Global.user.Img.getEncodedPath());
-            ((ImageView) findViewById(R.id.img_cadUser)).setImageBitmap(bmImg);
-        }
-
-        // TODO: BIND USER ATTRS TO UI
     }
 
     public void saveUser(View view){
@@ -85,7 +93,19 @@ public class SignUpActivity extends AppCompatActivity {
         Global.user.Patronus = ((EditText) findViewById(R.id.txtPatronus)).getText().toString();
         Global.user.setGender(((RadioButton) findViewById(R.id.radioButtonF)).isChecked()? User.GenderEnum.F : User.GenderEnum.M);
 
-        // TODO: BIND UI TO USER ATTRS
+        String value = ((Spinner) findViewById(R.id.spinnerHouses)).getSelectedItem().toString();
+
+        String g = this.getString(R.string.house_Gryffindor);
+        String h = this.getString(R.string.house_Hufflepuff);
+        String r = this.getString(R.string.house_Ravenclaw);
+        String s = this.getString(R.string.house_Slytherin);
+        String n = this.getString(R.string.house_none);
+
+        if(value.equals(g)) Global.user.House = new Character.House("gryffindor", this);
+        if(value.equals(h)) Global.user.House = new Character.House("hufflepuff", this);
+        if(value.equals(r)) Global.user.House = new Character.House("ravenclaw", this);
+        if(value.equals(s)) Global.user.House = new Character.House("slytherin", this);
+        if(value.equals(n)) Global.user.House = new Character.House("", this);
 
         Global.user.save(this);
 
@@ -103,51 +123,5 @@ public class SignUpActivity extends AppCompatActivity {
     public void selectDate(View view){
         // TODO: DIALOGUE FOR DATE
     }
-
-    public void takePhoto(View view){
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File photo = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,
-                Uri.fromFile(photo));
-        imageUri = Uri.fromFile(photo);
-        startActivityForResult(intent, TAKE_PICTURE);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case TAKE_PICTURE:
-                if (resultCode == Activity.RESULT_OK) {
-                    Uri selectedImage = imageUri;
-                    getContentResolver().notifyChange(selectedImage, null);
-
-                    // TODO: IMPLEMENT THIS
-                }
-        }
-    }
-
-    public static Bitmap drawableToBitmap (Drawable drawable) {
-        Bitmap bitmap = null;
-
-        if (drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            if(bitmapDrawable.getBitmap() != null) {
-                return bitmapDrawable.getBitmap();
-            }
-        }
-
-        if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
-        } else {
-            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        }
-
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-        return bitmap;
-    }
-
 
 }
