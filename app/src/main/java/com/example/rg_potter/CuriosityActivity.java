@@ -108,7 +108,7 @@ public class CuriosityActivity extends AppCompatActivity {
 
         String search = "";
 
-        ((TextView) findViewById(R.id.txtResponse)).setText(search);
+        ((TextView) findViewById(R.id.txtResponse)).setText(search.equals("")? search : getString(R.string.no_result));
     }
 
     private void patronus(){
@@ -119,27 +119,29 @@ public class CuriosityActivity extends AppCompatActivity {
 
         // ANSWER
 
-        /*
+        String search = "";
+
         long count = Stream.of(Global.characters)
                 .filter(c -> {
                     return c.patronus!= null? c.patronus.equalsIgnoreCase(Global.user.Patronus) : false;
                 }).count();
 
-        Random r = new Random();
+        if(count > 0) {
+            Random r = new Random();
 
-        Character character = Stream.of(Global.characters)
-                .filter(c -> {
-                    return c.patronus!= null? c.patronus.equalsIgnoreCase(Global.user.Patronus) : false;
-                })
-                .skip(r.nextInt((int)count))
-                .findAny()
-                .orElse(null);
+            Character character = Stream.of(Global.characters)
+                    .filter(c -> {
+                        return c.patronus!= null? c.patronus.equalsIgnoreCase(Global.user.Patronus) : false;
+                    })
+                    .skip(r.nextInt((int)count))
+                    .findAny()
+                    .orElse(null);
 
-        String search = character != null? character.name : getString(R.string.no_patronus);
-
-
-         */
-        ((TextView) findViewById(R.id.txtResponse)).setText("");
+            search = character !=null? "Achei o " + character.name +" que era da " + new Character.House(character.house, this).Name : getString(R.string.no_patronus);
+        }else{
+            search = getString(R.string.no_patronus);
+        }
+        ((TextView) findViewById(R.id.txtResponse)).setText(search);
     }
 
     private void lookLike(){
