@@ -3,6 +3,7 @@ package com.example.rg_potter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.sql.Date;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -61,7 +63,7 @@ public class CuriosityActivity extends AppCompatActivity {
                 this.sameHouse();
                 break;
             case 2:
-                this.birthday();
+                this.random();
                 break;
             case 3:
                 this.patronus();
@@ -99,16 +101,42 @@ public class CuriosityActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.txtResponse)).setText(search);
     }
 
-    private void birthday(){
+    private void random(){
+        btnAgain.setVisibility(ImageButton.VISIBLE);
         // QUESTION
 
-        ((TextView) findViewById(R.id.txtQuestion)).setText(getString(R.string.qst_birthday));
+        ((TextView) findViewById(R.id.txtQuestion)).setText(getString(R.string.qst_random));
 
         // ANSWER
 
         String search = "";
 
-        ((TextView) findViewById(R.id.txtResponse)).setText(search.equals("")? search : getString(R.string.no_result));
+        Random r = new Random();
+
+        do {
+            Character character = Stream.of(Global.characters)
+                    .skip(r.nextInt(Global.characters.length))
+                    .findAny()
+                    .orElse(null);
+
+            search = genString(character);
+
+        }while(search.equals(""));
+
+        ((TextView) findViewById(R.id.txtResponse)).setText(search.equals("")? getString(R.string.error) : search);
+    }
+
+    private String genString(Character c ){
+        String response = "";
+
+        if(c!=null? (c.name!=null && c.house!=null) : false){
+            response += "Encontrei " + c.name + "\n";
+            response += "Que particapava da  " + new Character.House(c.house, this).Name + "\n";
+            response += c.gender!=null? "Era do sexo " + c.gender + "\n" : "";
+            response += c.patronus!=null? "E tinha o patrono " + c.patronus + "\n" : "";
+        }
+
+        return response;
     }
 
     private void patronus(){
