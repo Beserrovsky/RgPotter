@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:addStatesFromChildren="false"
     android:animationCache="false"
-    android:background="#FFFFFF"
     android:clickable="false"
     android:foregroundGravity="top|left"
     android:orientation="horizontal"
     android:screenOrientation="landscape"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <ImageView
@@ -25,27 +25,13 @@
         app:srcCompat="@drawable/logo2" />
 
     <Button
-        android:id="@+id/btnView"
-        android:layout_width="226dp"
-        android:layout_height="68dp"
-        android:background="#975E33"
-        android:backgroundTint="#975E33"
-        android:onClick="Visualization"
-        android:text="@string/text_btn_view"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.229"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
-
-    <Button
         android:id="@+id/btnMore"
         android:layout_width="226dp"
         android:layout_height="68dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginStart="395dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="129dp"
         android:background="#975E33"
         android:backgroundTint="#975E33"
         android:onClick="More"
@@ -53,10 +39,42 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnView"
+        android:layout_width="226dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginBottom="129dp"
+        android:background="#975E33"
+        android:backgroundTint="#975E33"
+        android:onClick="Visualization"
+        android:text="@string/text_btn_view"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLumus"
+        android:layout_width="226dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="301dp"
+        android:layout_marginEnd="253dp"
+        android:layout_marginBottom="42dp"
+        android:background="#975E33"
+        android:backgroundTint="#975E33"
+        android:onClick="Spell"
+        android:text="@string/title_lumus"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtGreeting"

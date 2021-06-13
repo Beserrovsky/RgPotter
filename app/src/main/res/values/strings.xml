@@ -25,7 +25,7 @@
     <string name="error">Algo deu errado :/</string>
 
     <string name="text_btn_cad">Cadastrar RG</string>
-    <string name="text_btn_view">Iniciar RG Potter</string>
+    <string name="text_btn_view">Fazer meu RG Potter</string>
     <string name="text_more">Saiba mais sobre a Saga</string>
 
     <string name="text_greeting">Olá, caro estudante de Hogwarts! Em que podemos te ajudar hoje? </string>
@@ -58,4 +58,14 @@
 
     <string name="saved">Alterações salvas</string>
 
+    <string name="exname">Ex: Ana Silva</string>
+    <string name="exnpatrono">Ex: Cervo</string>
+
+    <string name="discover_house">Descubra a sua casa</string>
+
+    <string name="back_menu">Voltar ao menu</string>
+
+    <string name="title_lumus">Que tal aprender um feitiço de Hogwarts?</string>
+
+    <string name="instructions">Para ser um aluno de Hogwarts só falta aprender um feitiço e aqui te ensinamos isso também! Chacoalhe o celular e veja o feitiço Lumus acontecer!</string>
 </resources>
