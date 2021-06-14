@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="house_None">#333333</color>
     <color name="house_Gryffindor">#740001</color>
     <color name="house_Hufflepuff">#ECB939</color>
     <color name="house_Ravenclaw">#0E1A40</color>

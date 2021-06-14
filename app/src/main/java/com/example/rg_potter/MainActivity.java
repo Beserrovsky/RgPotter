@@ -2,7 +2,6 @@ package com.example.rg_potter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
@@ -10,10 +9,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.google.gson.Gson;
+import com.example.rg_potter.data.Global;
+import com.example.rg_potter.entity.User;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 public class MainActivity extends AppCompatActivity {
 

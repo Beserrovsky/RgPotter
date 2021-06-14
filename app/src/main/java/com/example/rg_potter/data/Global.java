@@ -1,8 +1,10 @@
-package com.example.rg_potter;
+package com.example.rg_potter.data;
 
 import android.content.Context;
 import android.util.Log;
 
+import com.example.rg_potter.entity.Character;
+import com.example.rg_potter.entity.User;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -10,19 +12,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
 
 final public class Global {
 
-    // GLOBAL CONSTS
+    private Global(){} // Non-instantiating Class
+
+
+    // Global constraints
 
     public static final String API_URL = "https://harry-potter-deploy.herokuapp.com";
     public static final String CHARACTERS_ENDPOINT = "/api/1/characters/all";
     public static final String LOCAL_JSON = "characters.json";
 
-    // GLOBAL VARS
+    // Global vars
 
     public static boolean SAFE_INSTALL = true;
 
@@ -31,7 +33,7 @@ final public class Global {
     public static Character[] characters;
     public static User user;
 
-    // Global methods
+    // Global Methods
 
     public static void loadCharactersJson(Context ctx){
         Gson gson = new Gson();
@@ -45,7 +47,7 @@ final public class Global {
 
             String fileJson = convertStreamToString(fin);
 
-            Log.d("JSON loaded: ", fileJson);
+            Log.d("JSON", "loaded: \n"+fileJson);
 
             fin.close();
 

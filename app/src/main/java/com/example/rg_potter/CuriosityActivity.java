@@ -3,15 +3,15 @@ package com.example.rg_potter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
-import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.sql.Date;
+import com.example.rg_potter.data.Global;
+import com.example.rg_potter.entity.Character;
+
 import java.util.Random;
 import java.util.stream.Stream;
 

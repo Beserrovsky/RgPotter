@@ -1,7 +1,7 @@
 package com.example.rg_potter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
+
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -9,31 +9,13 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.icu.text.SimpleDateFormat;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Optional;
-import java.util.Random;
-import java.util.stream.Stream;
+
+import com.example.rg_potter.data.Global;
 
 public class VisualizationActivity extends AppCompatActivity {
 
@@ -67,7 +49,7 @@ public class VisualizationActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name.length() > 0? Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1) : "");
         ((TextView) findViewById(R.id.txtbirthday2)).setText(formatedDate);
         ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus.length() > 0? Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1) : "");
-        ((TextView) findViewById(R.id.txthouse2)).setText(Global.user.House.Name == this.getString(R.string.house_none)? "" : Global.user.House.Name);
+        ((TextView) findViewById(R.id.txthouse2)).setText(Global.user.House.NameResource == this.getString(R.string.house_none)? "" : Global.user.House.NameResource);
 
        ((ImageView) findViewById(R.id.imgHouse)).setImageBitmap(drawableToBitmap(getDrawable(Global.user.House.Image)));
 
