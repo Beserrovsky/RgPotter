@@ -8,7 +8,7 @@ public class Gender {
     public int PronounResource = R.string.gender_u_pronoun;
 
     public Gender(String gender_id){
-
+        gender_id= gender_id==null? "" : gender_id;
         switch (gender_id.toLowerCase()){
             case "male":
                 this.NameResource = R.string.gender_m_name;

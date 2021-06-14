@@ -10,7 +10,7 @@ public class House {
     public int SpinnerIndex = 4;
 
     public House(String house_id){
-
+        house_id= house_id==null? "" : house_id;
         switch (house_id.toLowerCase()){
             case "gryffindor":
                 this.NameResource = R.string.house_gryffindor;

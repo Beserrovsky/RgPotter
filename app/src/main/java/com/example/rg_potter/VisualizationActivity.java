@@ -44,9 +44,9 @@ public class VisualizationActivity extends AppCompatActivity {
         SimpleDateFormat DateFor = new SimpleDateFormat("dd-MM-yyyy");
 
         ((TextView) findViewById(R.id.txtsexo2)).setText(this.getString(Global.user.getGender().NameResource));
-        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name.length() > 0? Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1) : "");
+        ((TextView) findViewById(R.id.txtname2)).setText(Global.user.Name!=null?(Global.user.Name.length()>1? Global.user.Name.substring(0, 1).toUpperCase() + Global.user.Name.substring(1) : Global.user.Name) : "");
         ((TextView) findViewById(R.id.txtbirthday2)).setText(DateFor.format(Global.user.Birth.getTime()));
-        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus.length() > 0? Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1) : "");
+        ((TextView) findViewById(R.id.txtpatrono2)).setText(Global.user.Patronus!=null? (Global.user.Patronus.length()>1? Global.user.Patronus.substring(0, 1).toUpperCase() + Global.user.Patronus.substring(1) : Global.user.Patronus) : "");
         ((TextView) findViewById(R.id.txthouse2)).setText(this.getString(Global.user.getHouse().NameResource));
 
        ((ImageView) findViewById(R.id.imgHouse)).setImageBitmap(drawableToBitmap(getDrawable(Global.user.getHouse().Image)));
