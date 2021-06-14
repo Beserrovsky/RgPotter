@@ -83,22 +83,23 @@ public class CuriosityActivity extends AppCompatActivity {
 
         long count = Stream.of(Global.characters)
                 .filter(c -> {
-                    return c.house.equals(Global.user.getHouseId());
+                    return c.house_id.equalsIgnoreCase(Global.user.getHouseId());
                 }).count();
 
         Random r = new Random();
 
         Character character = Stream.of(Global.characters)
                 .filter(c -> {
-                    return c.house.equals(Global.user.getHouseId());
+                    return c.house_id.equalsIgnoreCase(Global.user.getHouseId());
                 })
                 .skip(r.nextInt((int)count))
                 .findAny()
                 .orElse(null);
 
-        search = (character!=null? "Achei" + this.getString(character.Gender.PronounResource) + " " + character.name + ( character.House.NameResource != R.string.house_none? " que participou da " + this.getString(character.House.NameResource) : " que não passou por hogwarts") : this.getString(R.string.no_result));
+        search = genString(character, false);
 
         ((TextView) findViewById(R.id.txtResponse)).setText(search);
+
     }
 
     private void random(){
@@ -119,21 +120,25 @@ public class CuriosityActivity extends AppCompatActivity {
                     .findAny()
                     .orElse(null);
 
-            search = genString(character);
+            search = genString(character, false);
 
         }while(search.equals(""));
 
         ((TextView) findViewById(R.id.txtResponse)).setText(search.equals("")? getString(R.string.error) : search);
     }
 
-    private String genString(Character c ){
+    private String genString(Character c, boolean patronus){
         String response = "";
 
-        if(c!=null? (c.name!=null && c.house!=null) : false){
-            response += "Encontrei " + c.name + "\n";
-            response += c.House.NameResource != R.string.house_none? "Que participou da " + this.getString(c.House.NameResource) : " Que não passou por hogwarts" + "\n";
-            response += c.gender!=null? "Era do sexo " + c.gender + "\n" : "";
-            response += c.patronus!=null? "E tinha o patrono " + c.patronus + "\n" : "";
+        if(c!=null? (c.name!=null && c.house_id !=null) : false){
+            response += "Encontrei " + this.getString(c.Gender.PronounResource) + " " + c.name + "\n";
+            response += c.House.NameResource != R.string.house_none? "Que participou da " + this.getString(c.House.NameResource) + "\n" : "Que " + this.getString(R.string.house_none_long).toLowerCase() + "\n";
+            response += "Era do sexo " + this.getString(c.Gender.NameResource)+ "\n";
+            response += c.patronus !=null && c.patronus != ""? "E tinha o patrono " + c.patronus + "\n" : "";
+        }else{
+
+            if(patronus) response += this.getString(R.string.no_patronus);
+            else response += this.getString(R.string.no_result);
         }
 
         return response;
@@ -165,7 +170,7 @@ public class CuriosityActivity extends AppCompatActivity {
                     .findAny()
                     .orElse(null);
 
-            search = character !=null? "Achei o " + character.name +" que era da " + this.getString(character.House.NameResource): getString(R.string.no_patronus);
+            search = genString(character, true);
         }else{
             search = getString(R.string.no_patronus);
         }
@@ -187,7 +192,7 @@ public class CuriosityActivity extends AppCompatActivity {
 
                     boolean sameGender = c.Gender.NameResource == Global.user.getGender().NameResource;
 
-                    return c.house.equalsIgnoreCase(Global.user.getHouseId()) && sameGender;
+                    return c.house_id.equalsIgnoreCase(Global.user.getHouseId()) && sameGender;
                 })
                 .findFirst()
                 .orElse(null);
@@ -203,7 +208,7 @@ public class CuriosityActivity extends AppCompatActivity {
                     .orElse(null);
         }
 
-        String search = character.House.NameResource != R.string.house_none? "Que participou da " + this.getString(character.House.NameResource) : " Que não passou por hogwarts";
+        String search = genString(character, false);
 
         ((TextView) findViewById(R.id.txtResponse)).setText(search);
     }

@@ -17,6 +17,7 @@
     <string name="house_ravenclaw">Corvinal</string>
     <string name="house_slytherin">Sonserina</string>
     <string name="house_none">Nenhuma</string>
+    <string name="house_none_long">Não passou por Hogwarts</string>
     <string name="gender_m_name">Masculino</string>
     <string name="gender_f_name">Feminino</string>
     <string name="gender_u_name">Outros</string>

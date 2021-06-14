@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Spell (View view){
-        Intent intent = new Intent(this, activity_lumus.class);
+        Intent intent = new Intent(this, LumusActivity.class);
         startActivity(intent);
     }
 

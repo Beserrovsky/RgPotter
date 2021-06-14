@@ -71,8 +71,8 @@ public class User {
             if (c.moveToFirst()) {
                 this.Id = c.getInt(0);
                 this.Name = c.getString(1);
-                this.Gender = new Gender(c.getString(2));
-                this.House = new House(c.getString(3));
+                this.setGender(c.getString(2));
+                this.setHouse(c.getString(3));
                 this.Birth = new Date(Long.parseLong(c.getString(4)));
                 this.Patronus = c.getString(5);
 

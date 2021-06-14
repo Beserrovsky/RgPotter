@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.rg_potter.entity.Character;
+import com.example.rg_potter.entity.CharacterInput;
 import com.example.rg_potter.entity.User;
 import com.google.gson.Gson;
 
@@ -51,7 +52,13 @@ final public class Global {
 
             fin.close();
 
-            Global.characters = gson.fromJson(fileJson, Character[].class);
+            CharacterInput b[] = gson.fromJson(fileJson, CharacterInput[].class);
+            Global.characters = new Character[b.length];
+
+            for(int i = 0; i < b.length; i++) {
+                Global.characters[i] = new Character(b[i].name, b[i].species, b[i].gender, b[i].patronus, b[i].house);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
