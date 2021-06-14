@@ -1,7 +1,5 @@
 package com.example.rg_potter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -10,14 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.rg_potter.data.Global;
-import com.example.rg_potter.entity.Character;
 import com.example.rg_potter.entity.User;
 
 import java.util.Calendar;
@@ -30,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Debug", "SignUp activity called");
+        Log.d("SignUpActivity", "Activity called");
 
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -45,9 +43,9 @@ public class SignUpActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.txtPatronus)).setText(Global.user.Patronus);
 
 
-        String[] houses = { this.getString(R.string.house_Gryffindor), this.getString(R.string.house_Hufflepuff), this.getString(R.string.house_Ravenclaw), this.getString(R.string.house_Slytherin), this.getString(R.string.house_none)};
+        String[] houses = { this.getString(R.string.house_gryffindor), this.getString(R.string.house_hufflepuff), this.getString(R.string.house_ravenclaw), this.getString(R.string.house_slytherin), this.getString(R.string.house_none)};
 
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>
                 (this, android.R.layout.simple_spinner_item,
                         houses); //selected item will look like a spinner set from XML
 
@@ -55,9 +53,9 @@ public class SignUpActivity extends AppCompatActivity {
                 .simple_spinner_dropdown_item);
 
         ((Spinner) findViewById(R.id.spinnerHouses)).setAdapter(spinnerArrayAdapter);
-        ((Spinner) findViewById(R.id.spinnerHouses)).setSelection(Global.user.House.SpinnerIndex);
+        ((Spinner) findViewById(R.id.spinnerHouses)).setSelection(Global.user.getHouse().SpinnerIndex);
 
-        if(Global.user.getGender_Id(this).equalsIgnoreCase("M")){
+        if(Global.user.getGender().PronounResource == R.string.gender_m_pronoun){
             ((RadioButton) findViewById(R.id.radioButtonF)).setChecked(false);
             ((RadioButton) findViewById(R.id.radioButtonM)).setChecked(true);
         }else{
@@ -71,21 +69,23 @@ public class SignUpActivity extends AppCompatActivity {
         Global.user.Name = ((EditText) findViewById(R.id.txtName)).getText().toString();
         Global.user.Birth = this.date;
         Global.user.Patronus = ((EditText) findViewById(R.id.txtPatronus)).getText().toString();
-        Global.user.setGender(((RadioButton) findViewById(R.id.radioButtonF)).isChecked()? User.GenderEnum.F : User.GenderEnum.M);
+        Global.user.setGender(((RadioButton) findViewById(R.id.radioButtonF)).isChecked()? "female": "male");
 
         String value = ((Spinner) findViewById(R.id.spinnerHouses)).getSelectedItem().toString();
 
-        String g = this.getString(R.string.house_Gryffindor);
-        String h = this.getString(R.string.house_Hufflepuff);
-        String r = this.getString(R.string.house_Ravenclaw);
-        String s = this.getString(R.string.house_Slytherin);
+        //TODO: That's gotta be a better logic here!
+
+        String g = this.getString(R.string.house_gryffindor);
+        String h = this.getString(R.string.house_hufflepuff);
+        String r = this.getString(R.string.house_ravenclaw);
+        String s = this.getString(R.string.house_slytherin);
         String n = this.getString(R.string.house_none);
 
-        if(value.equals(g)) Global.user.House = new Character.House("gryffindor", this);
-        if(value.equals(h)) Global.user.House = new Character.House("hufflepuff", this);
-        if(value.equals(r)) Global.user.House = new Character.House("ravenclaw", this);
-        if(value.equals(s)) Global.user.House = new Character.House("slytherin", this);
-        if(value.equals(n)) Global.user.House = new Character.House("", this);
+        if(value.equals(g)) Global.user.setHouse("gryffindor");
+        if(value.equals(h)) Global.user.setHouse("hufflepuff");
+        if(value.equals(r)) Global.user.setHouse("ravenclaw");
+        if(value.equals(s)) Global.user.setHouse("slytherin");
+        if(value.equals(n)) Global.user.setHouse("");
 
         Global.user.save(this);
 
@@ -114,23 +114,19 @@ public class SignUpActivity extends AppCompatActivity {
         int m = c.get(Calendar.MONTH);
         int d = c.get(Calendar.DAY_OF_MONTH);
 
-        switch (id) {
-            case DATE_DIALOG_ID:
-                return new DatePickerDialog(this, mDateSetListener, y, m,
-                        d);
+        if (id == DATE_DIALOG_ID) {
+            return new DatePickerDialog(this, mDateSetListener, y, m,
+                    d);
         }
         return null;
     }
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener =
-            new DatePickerDialog.OnDateSetListener() {
-                public void onDateSet(DatePicker view, int y, int m,
-                                      int d) {
+    private final DatePickerDialog.OnDateSetListener mDateSetListener =
+            (view, y, m, d) -> {
 
-                    date = new GregorianCalendar(y, m, d).getTime();
+                date = new GregorianCalendar(y, m, d).getTime();
 
-                    Log.d("Debug date", date.toString());
-                }
+                Log.d("Debug date", date.toString());
             };
 
 }

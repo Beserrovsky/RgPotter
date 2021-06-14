@@ -26,7 +26,9 @@ public class User {
 
     // Getters
     public House getHouse(){ return this.House; }
+    public String getHouseId(){ return this.House_id; }
     public Gender getGender(){ return this.Gender; }
+    public int getId(){ return this.Id; }
 
     // Setters
     public void setHouse(String house_id){ this.House_id = house_id; this.House = new House(house_id); }

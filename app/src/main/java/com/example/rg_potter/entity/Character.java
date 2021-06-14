@@ -2,20 +2,20 @@ package com.example.rg_potter.entity;
 
 public class Character{
 
-    private int id = 0;
-    private String name = null;
-    private String birth = null;
-    private String death = null;
-    private String species = null;
-    private String ancestry = null;
-    private String gender = null;
-    private String hair_color = null;
-    private String eye_color = null;
-    private String wand = null;
-    private String patronus = null;
-    private String house = null;
-    private String[] associated_groups = null;
-    private int[] books_featured_in = null;
+    public int id = 0;
+    public String name = null;
+    public String birth = null;
+    public String death = null;
+    public String species = null;
+    public String ancestry = null;
+    public String gender = null;
+    public String hair_color = null;
+    public String eye_color = null;
+    public String wand = null;
+    public String patronus = null;
+    public String house = null;
+    public String[] associated_groups = null;
+    public int[] books_featured_in = null;
 
     public House House = null;
     public Gender Gender = null;
@@ -24,4 +24,5 @@ public class Character{
         this.Gender = new Gender(this.gender);
         this.House = new House(this.house);
     }
+
 }

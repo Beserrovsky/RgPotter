@@ -23,7 +23,7 @@ public class CuriosityActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Debug", "Curiosity activity called");
+        Log.d("CuriosityActivity", "Activity called");
 
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -83,20 +83,20 @@ public class CuriosityActivity extends AppCompatActivity {
 
         long count = Stream.of(Global.characters)
                 .filter(c -> {
-                    return c.house!=null? c.house.equalsIgnoreCase(Global.user.House.house_id): false;
+                    return c.house.equals(Global.user.getHouseId());
                 }).count();
 
         Random r = new Random();
 
         Character character = Stream.of(Global.characters)
                 .filter(c -> {
-                    return c.house!=null? c.house.equalsIgnoreCase(Global.user.House.house_id): false;
+                    return c.house.equals(Global.user.getHouseId());
                 })
                 .skip(r.nextInt((int)count))
                 .findAny()
                 .orElse(null);
 
-        search = character !=null? "Achei o " + character.name +" que era da " + new Character.House(character.house, this).Name : getString(R.string.no_result);
+        search = (character!=null? "Achei" + this.getString(character.Gender.PronounResource) + " " + character.name + ( character.House.NameResource != R.string.house_none? " que participou da " + this.getString(character.House.NameResource) : " que não passou por hogwarts") : this.getString(R.string.no_result));
 
         ((TextView) findViewById(R.id.txtResponse)).setText(search);
     }
@@ -131,7 +131,7 @@ public class CuriosityActivity extends AppCompatActivity {
 
         if(c!=null? (c.name!=null && c.house!=null) : false){
             response += "Encontrei " + c.name + "\n";
-            response += "Que particapava da  " + new Character.House(c.house, this).Name + "\n";
+            response += c.House.NameResource != R.string.house_none? "Que participou da " + this.getString(c.House.NameResource) : " Que não passou por hogwarts" + "\n";
             response += c.gender!=null? "Era do sexo " + c.gender + "\n" : "";
             response += c.patronus!=null? "E tinha o patrono " + c.patronus + "\n" : "";
         }
@@ -165,7 +165,7 @@ public class CuriosityActivity extends AppCompatActivity {
                     .findAny()
                     .orElse(null);
 
-            search = character !=null? "Achei o " + character.name +" que era da " + new Character.House(character.house, this).Name : getString(R.string.no_patronus);
+            search = character !=null? "Achei o " + character.name +" que era da " + this.getString(character.House.NameResource): getString(R.string.no_patronus);
         }else{
             search = getString(R.string.no_patronus);
         }
@@ -173,6 +173,9 @@ public class CuriosityActivity extends AppCompatActivity {
     }
 
     private void lookLike(){
+
+        // TODO: Come on i can improve it
+
         // QUESTION
 
         ((TextView) findViewById(R.id.txtQuestion)).setText(getString(R.string.qst_lookLike));
@@ -182,9 +185,9 @@ public class CuriosityActivity extends AppCompatActivity {
         Character character = Stream.of(Global.characters)
                 .filter(c -> {
 
-                    boolean sameGender = c.gender != null? (c.gender.equalsIgnoreCase("male") && Global.user.getGender_Id(this).equalsIgnoreCase("m")) || (c.gender.equalsIgnoreCase("female") && Global.user.getGender_Id(this).equalsIgnoreCase("f")): false;
+                    boolean sameGender = c.Gender.NameResource == Global.user.getGender().NameResource;
 
-                    return (new Character.House(c.house, this).house_id).equalsIgnoreCase(Global.user.House.house_id) && sameGender;
+                    return c.house.equalsIgnoreCase(Global.user.getHouseId()) && sameGender;
                 })
                 .findFirst()
                 .orElse(null);
@@ -200,7 +203,7 @@ public class CuriosityActivity extends AppCompatActivity {
                     .orElse(null);
         }
 
-        String search = character!=null? character.name + ", que em hogwarts era da: " + (new Character.House(character.house, this).Name) : getString(R.string.error);
+        String search = character.House.NameResource != R.string.house_none? "Que participou da " + this.getString(character.House.NameResource) : " Que não passou por hogwarts";
 
         ((TextView) findViewById(R.id.txtResponse)).setText(search);
     }
