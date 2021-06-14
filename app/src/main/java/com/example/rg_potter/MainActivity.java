@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Spell (View view){
+        Intent intent = new Intent(this, activity_lumus.class);
+        startActivity(intent);
+    }
+
     public void More (View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://harrypotter.fandom.com/pt-br/wiki/P%C3%A1gina_Principal"));
         startActivity(intent);
