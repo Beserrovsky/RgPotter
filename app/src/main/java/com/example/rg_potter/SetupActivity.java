@@ -55,7 +55,7 @@ public class SetupActivity extends AppCompatActivity {
             Log.d("Connection", "" + isConnectionAvailable());
 
             if(isConnectionAvailable()){
-
+                //TODO: FIX HERE
                 new CharactersSetup().execute(); // Download
             }else{
 

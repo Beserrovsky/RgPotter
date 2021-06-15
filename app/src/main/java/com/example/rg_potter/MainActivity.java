@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.rg_potter.data.Global;
 import com.example.rg_potter.entity.User;
+import com.example.rg_potter.view.PingView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -103,11 +105,14 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
     public void onSuccess(Location location) {
         if(location != null) {
             this.location = location;
+            ((PingView) findViewById(R.id.Ping)).setColor(Color.GREEN);
             defineAddress(getAddress(this.location.getLatitude(),this.location.getLongitude()));
         }
     }
 
-    private void defineAddress(String countryName){((TextView) findViewById(R.id.txtCountry)).setText(countryName);}
+    private void defineAddress(String countryName){
+        ((TextView) findViewById(R.id.txtCountry)).setText(countryName);
+    }
 
     private String getAddress(double latitude, double longitude) {
         StringBuilder result = new StringBuilder();

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -28,6 +29,7 @@ public class LumusActivity extends AppCompatActivity implements SensorEventListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_lumus);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -78,8 +80,6 @@ public class LumusActivity extends AppCompatActivity implements SensorEventListe
                 initValues[2] = event.values[2];
                 init = false;
             }
-
-            Log.d("a", "" + event.values[0]);
 
             boolean done = false;
 

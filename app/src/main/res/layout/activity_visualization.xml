@@ -8,6 +8,8 @@
     android:background="#936636"
     tools:context=".VisualizationActivity">
 
+
+
     <View
         android:id="@+id/view"
         android:layout_width="613dp"
@@ -149,6 +151,7 @@
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
