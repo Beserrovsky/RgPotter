@@ -6,4 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".LumusActivity">
 
+
+    <Button
+        android:id="@+id/btnSpell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="Start"
+        android:text="@string/lumus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="163dp"
+        android:text="@string/lumus_header"
+        app:layout_constraintBottom_toTopOf="@+id/btnSpell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtShake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lumus_on"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtJoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/lumus_joke"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtShake" />
 </androidx.constraintlayout.widget.ConstraintLayout>

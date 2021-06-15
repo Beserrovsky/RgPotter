@@ -7,23 +7,23 @@
     <string name="setup_net_title">Conexão falha</string>
     <string name="setup_net_subtitle">Você não consegue se conectar com o servidor, tente verificar sua conexão com a internet!</string>
     <string name="setup_net_retry">Tentar novamente</string>
-    <string name="user_default_name">Bruxinho novato</string>
-    <string name="user_default_gender">M</string>
-    <string name="user_default_img"></string>
-    <string name="user_default_house"></string>
-    <string name="user_default_patronus"></string>
+
+    <string name="permdesc_flashlight">Usaremos sua lanterna para nossas magias!</string>
+
     <string name="house_gryffindor">Grifinória</string>
     <string name="house_hufflepuff">Lufa-Lufa</string>
     <string name="house_ravenclaw">Corvinal</string>
     <string name="house_slytherin">Sonserina</string>
     <string name="house_none">Nenhuma</string>
     <string name="house_none_long">Não passou por Hogwarts</string>
+
     <string name="gender_m_name">Masculino</string>
     <string name="gender_f_name">Feminino</string>
     <string name="gender_u_name">Outros</string>
     <string name="gender_m_pronoun">o</string>
     <string name="gender_f_pronoun">a</string>
     <string name="gender_u_pronoun">o/a</string>
+
     <string name="exit">Sair</string>
     <string name="error">Algo deu errado :/</string>
 
@@ -61,14 +61,27 @@
 
     <string name="saved">Alterações salvas</string>
 
+    <string name="lumus">Lumus</string>
+
+    <string name="default_spell">Feitiço</string>
+
     <string name="exname">Ex: Ana Silva</string>
     <string name="exnpatrono">Ex: Cervo</string>
 
     <string name="discover_house">Descubra a sua casa</string>
 
+
+    <string name="lumus_header">Solte seu feitiço!</string>
+    <string name="lumus_on">Gesticule!</string>
+    <string name="lumus_joke">(é leviossa não levioSSAA)</string>
+
     <string name="back_menu">Voltar ao menu</string>
 
     <string name="title_lumus">Que tal aprender um feitiço de Hogwarts?</string>
+    <string name="no_sensor_lumus_title">Vish, varinha quebrada!</string>
+    <string name="no_sensor_lumus_desc">Parece que sua varinha não tem os sensores mágicos necessários, ou não estão disponíveis para o uso de nosso APP :(</string>
 
     <string name="instructions">Para ser um aluno de Hogwarts só falta aprender um feitiço e aqui te ensinamos isso também! Chacoalhe o celular e veja o feitiço Lumus acontecer!</string>
+
+
 </resources>
