@@ -67,8 +67,6 @@ public class LumusActivity extends AppCompatActivity implements SensorEventListe
 
                 }
 
-                boolean pass = false;
-
                 float delta = 0f;
                 for(int i = 0; i < lastValues.length; i++){                                      // event.values[0] = X Axis variation
                     delta += Math.abs(event.values[i] - lastValues[i]);                          // event.values[1] = Y Axis variation
