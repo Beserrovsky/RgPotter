@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
     public void onSuccess(Location location) {
         if(location != null) {
             this.location = location;
+            Log.d("MainActivity", "Dispositivo localizado com sucesso!");
             ((PingView) findViewById(R.id.Ping)).setColor(Color.GREEN);
             defineAddress(getAddress(this.location.getLatitude(),this.location.getLongitude()));
         }
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
                 result.append(address.getCountryName());
             }
         } catch (IOException e) {
-            Log.e("tag", e.getMessage());
+            Log.e("MainActivity", e.getMessage());
         }
         return result.toString();
     }

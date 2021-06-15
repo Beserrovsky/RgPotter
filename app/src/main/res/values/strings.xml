@@ -61,10 +61,6 @@
 
     <string name="saved">Alterações salvas</string>
 
-    <string name="lumus">Lumus</string>
-
-    <string name="default_spell">Feitiço</string>
-
     <string name="exname">Ex: Ana Silva</string>
     <string name="exnpatrono">Ex: Cervo</string>
 
@@ -74,7 +70,9 @@
     <string name="lumus_header">Solte seu feitiço!</string>
     <string name="lumus_on">Gesticule!</string>
     <string name="lumus_joke">(é leviossa não levioSSAA)</string>
-    <string name="lumus_stop">Prohibere (Parar)</string>
+    <string name="lumus_lumus">Lumus</string>
+    <string name="lumus_nox">Nox</string>
+    <string name="lumus_retry">Conjurar novamente</string>
 
     <string name="back_menu">Voltar ao menu</string>
 
