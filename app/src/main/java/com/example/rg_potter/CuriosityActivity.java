@@ -179,8 +179,6 @@ public class CuriosityActivity extends AppCompatActivity {
 
     private void lookLike(){
 
-        // TODO: Come on i can improve it
-
         // QUESTION
 
         ((TextView) findViewById(R.id.txtQuestion)).setText(getString(R.string.qst_lookLike));

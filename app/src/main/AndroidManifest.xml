@@ -19,22 +19,22 @@
         android:theme="@style/Theme.Rgpotter">
         <activity android:name=".LumusActivity"></activity>
         <activity android:name=".VisualizationActivity" />
-        <activity android:name=".SetupActivity" />
-        <activity android:name=".CuriosityActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CuriosityActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainActivity"/>
         <receiver android:name="RgWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
-                android:resource="@layout/widget_rg" />
+                android:resource="@xml/widget_rg_info" />
         </receiver>
 
     </application>

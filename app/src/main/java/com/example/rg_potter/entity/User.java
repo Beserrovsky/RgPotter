@@ -19,9 +19,9 @@ public class User {
     public Date Birth;
     public String Patronus;
 
-    private String House_id;
+    private String House_id = "";
     private House House;
-    private String Gender_id;
+    private String Gender_id = "";
     private Gender Gender;
 
     // Getters

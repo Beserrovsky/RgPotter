@@ -42,23 +42,6 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        if(Global.characters == null){
-
-            File file = new File(getFilesDir(), Global.LOCAL_JSON);
-
-            if(file.exists()){
-
-                Global.loadCharactersJson(this);
-            }else{
-
-                Intent intent = new Intent(MainActivity.this, SetupActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }
-
-        Global.user = new User(0, this);
-
         setContentView(R.layout.activity_main);
 
         if(address==null) {

@@ -11,12 +11,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ProgressBar;
 
 import com.example.rg_potter.data.Global;
+import com.example.rg_potter.entity.User;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
@@ -24,14 +27,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SetupActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     ProgressBar pb;
     AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("SetupActivity", "Activity called");
+        Log.d("SplashActivity", "Activity called");
 
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -39,44 +42,96 @@ public class SetupActivity extends AppCompatActivity {
 
         pb = findViewById(R.id.progressBar);
 
-        new ConnectionCheck().execute();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(Global.characters == null){
+
+                    File file = new File(getFilesDir(), Global.LOCAL_JSON);
+
+                    if(file.exists()){
+
+                        Global.loadCharactersJson(SplashActivity.this);
+                    }else{
+
+                        Connection();
+                    }
+                }
+
+                Global.user = new User(0, SplashActivity.this);
+
+                done();
+            }
+        },500);
+
+
+    }
+
+    void Connection(){
+        new ConnectionCheck(new MyInterface() {
+            @Override
+            public void myMethod(boolean result) {
+                if(result){
+                    new CharactersSetup().execute(); // Download
+                }else{
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SplashActivity.this);
+                    builder.setTitle(getResources().getString(R.string.setup_net_title));
+                    builder.setMessage(getString(R.string.setup_net_subtitle));
+                    builder.setPositiveButton(getString(R.string.setup_net_retry), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            Connection();
+                        }
+                    });
+                    builder.setNegativeButton(getString(R.string.exit), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            SplashActivity.this.finishAffinity();
+                        }
+                    });
+                    alertDialog = builder.create();
+                    alertDialog.show();
+                }
+            }
+        }).execute();
     }
 
     protected void done(){
-        Intent intent = new Intent(SetupActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },500);
     }
 
-    class ConnectionCheck extends AsyncTask<Void, Void, Void> {
+    protected interface MyInterface {
+        public void myMethod(boolean result);
+    }
+
+    class ConnectionCheck extends AsyncTask<Void, Void, Boolean> {
+
+        private MyInterface mListener;
+
+        public ConnectionCheck(MyInterface mListener){
+            this.mListener  = mListener;
+        }
 
         @Override
-        protected Void doInBackground(Void... voids) {
-            Log.d("Connection", "" + isConnectionAvailable());
+        protected Boolean doInBackground(Void... voids) {
 
-            if(isConnectionAvailable()){
-                //TODO: FIX HERE
-                new CharactersSetup().execute(); // Download
-            }else{
+            Boolean ConnectionStatus = isConnectionAvailable();
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(SetupActivity.this);
-                builder.setTitle(getResources().getString(R.string.setup_net_title));
-                builder.setMessage(getString(R.string.setup_net_subtitle));
-                builder.setPositiveButton(getString(R.string.setup_net_retry), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        new ConnectionCheck().execute();
-                    }
-                });
-                builder.setNegativeButton(getString(R.string.exit), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        SetupActivity.this.finishAffinity();
-                    }
-                });
-                alertDialog = builder.create();
-                alertDialog.show();
-            }
+            Log.d("Connection", "" + ConnectionStatus);
 
-            return null;
+            return ConnectionStatus;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            if (mListener != null)
+                mListener.myMethod(result);
         }
 
         public boolean isConnectionAvailable() {
@@ -86,7 +141,6 @@ public class SetupActivity extends AppCompatActivity {
         }
 
     }
-
 
 
     class CharactersSetup extends AsyncTask<Void, Integer, Void> {
@@ -104,7 +158,7 @@ public class SetupActivity extends AppCompatActivity {
 
             publishProgress(50);
 
-            Global.loadCharactersJson(SetupActivity.this);
+            Global.loadCharactersJson(SplashActivity.this);
 
             publishProgress(100);
 
@@ -115,7 +169,7 @@ public class SetupActivity extends AppCompatActivity {
             if(!Global.SAFE_INSTALL){
 
                 Log.d("Error", "Stopped attempted to install again, probably a repercussion error");
-                SetupActivity.this.finishAffinity();
+                SplashActivity.this.finishAffinity();
                 return;
             }
 
@@ -139,7 +193,7 @@ public class SetupActivity extends AppCompatActivity {
 
                 stream.close();
 
-                writeToFile(jsonString, SetupActivity.this);
+                writeToFile(jsonString, SplashActivity.this);
             }
             catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -181,8 +235,8 @@ public class SetupActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
             done();
         }
     }
+
 }

@@ -1,6 +1,8 @@
 package com.example.rg_potter.data;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Location;
 import android.util.Log;
 
 import com.example.rg_potter.entity.Character;

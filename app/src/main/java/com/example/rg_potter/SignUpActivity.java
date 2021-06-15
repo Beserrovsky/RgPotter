@@ -73,8 +73,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         String value = ((Spinner) findViewById(R.id.spinnerHouses)).getSelectedItem().toString();
 
-        //TODO: That's gotta be a better logic here!
-
         String g = this.getString(R.string.house_gryffindor);
         String h = this.getString(R.string.house_hufflepuff);
         String r = this.getString(R.string.house_ravenclaw);
