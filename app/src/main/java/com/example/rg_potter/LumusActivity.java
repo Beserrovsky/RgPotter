@@ -12,7 +12,10 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class LumusActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -43,13 +46,30 @@ public class LumusActivity extends AppCompatActivity implements SensorEventListe
     private boolean isRunning = false;
     public void Start(View view){
         if(notAble) noSensors();
-        else isRunning = true;
+        else {
+            ((Button) findViewById(R.id.btnSpell)).setVisibility(View.INVISIBLE);
+            ((TextView) findViewById(R.id.txtRelease)).setVisibility(View.INVISIBLE);
+            ((TextView) findViewById(R.id.txtShake)).setVisibility(View.VISIBLE);
+            ((TextView) findViewById(R.id.txtJoke)).setVisibility(View.VISIBLE);
+            ((Button) findViewById(R.id.btnStop)).setVisibility(View.VISIBLE);
+            isRunning = true;
+        }
+    }
+
+    public void Stop(View view){
+        isRunning = false;
+        setLight(false);
+        ((Button) findViewById(R.id.btnSpell)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.txtRelease)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.txtShake)).setVisibility(View.INVISIBLE);
+        ((TextView) findViewById(R.id.txtJoke)).setVisibility(View.INVISIBLE);
+        ((Button) findViewById(R.id.btnStop)).setVisibility(View.INVISIBLE);
     }
 
     private float[] initValues = new float[3];
     private boolean init = true, mode = false;
-    private float THRESHOLD = 1000;
-    public void onSensorChanged(SensorEvent event){
+    private float THRESHOLD = 2;
+    public void onSensorChanged(SensorEvent event){ // TODO: FIX HERE
 
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
             if(init) {
@@ -58,6 +78,8 @@ public class LumusActivity extends AppCompatActivity implements SensorEventListe
                 initValues[2] = event.values[2];
                 init = false;
             }
+
+            Log.d("a", "" + event.values[0]);
 
             boolean done = false;
 
