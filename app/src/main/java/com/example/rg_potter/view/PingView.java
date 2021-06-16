@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 public class PingView extends View {
 
-    private static final int RADIUS = 21;
+    private static final int RADIUS = 20;
 
     Paint myPaint;
 
@@ -37,7 +37,7 @@ public class PingView extends View {
 
     private void init(){
         myPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        myPaint.setColor(Color.RED);
+        myPaint.setColor(Color.YELLOW);
     }
 
     public void setColor(int color){
