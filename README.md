@@ -12,6 +12,8 @@ O aplicativo tem sua interface em PT porém todos os dados (como nomes de person
 
 Esse projeto só é possível graças ao maravilhoso [DavidBarton](https://github.com/theDavidBarton) que fez o crawling da wiki e disponibilzou a API em [the-harry-potter-database](https://github.com/theDavidBarton/the-harry-potter-database)! Muito Obrigado!
 
+Além dessa, o projeto tem sua própria API também, desenvolvida em .NET CORE e hospedada no Heroku, encontre o código fonte dela [aqui](https://github.com/Beserrovsky/RgPotter_API)! 👨‍💻
+
 ## Versões
 
 - ### Broken Version
@@ -22,7 +24,7 @@ Esse projeto só é possível graças ao maravilhoso [DavidBarton](https://githu
 
 	Porém, graças a uma Activity MUITO mal escrita, a versão só funcionava em DEBUG mode, portanto, fica aqui nossa meção honrosa 💂
 
-- ### Development Version
+- ### 1.0 Version [not released yet]
 
 		Contibuidores: Felipe Beserra e Matheus Batista
 
