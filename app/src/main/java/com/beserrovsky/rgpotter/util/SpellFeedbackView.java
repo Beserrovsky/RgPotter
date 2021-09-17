@@ -2,10 +2,8 @@ package com.beserrovsky.rgpotter.util;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -30,7 +28,7 @@ public class SpellFeedbackView extends View {
         Paint paint;
         public FeedbackCircle(){ this.paint = new Paint(Paint.ANTI_ALIAS_FLAG);}
 
-        public final int MAX_RADIUS = 200;
+        public final int MAX_RADIUS = 400;
         private int radius;
 
         public void Update(int aggressiveness, int progress) {
@@ -46,7 +44,8 @@ public class SpellFeedbackView extends View {
     }
     
     private FeedbackCircle circle;
-    int aggressiveness = 30, progress = 50;
+    public final int DEFAULT_AGGRESSIVENESS = 30, DEFAULT_PROGRESS = 75;
+    int aggressiveness = DEFAULT_AGGRESSIVENESS, progress = DEFAULT_PROGRESS;
     
     private void init(){
         this.circle = new FeedbackCircle();
