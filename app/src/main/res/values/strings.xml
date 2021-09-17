@@ -2,6 +2,8 @@
     <string name="app_name">RgPotter</string>
 
     <!-- Spell Activity -->
+    <string name="spell_null">Spell Null</string>
+    <string name="spell_null_desc">Desc Null</string>
     <string name="spell_lumus">Lumus</string>
     <string name="spell_lumus_desc">Lumus turns everything on, and if it happens that you have yourself a flashlight, it might work, just saying tho</string>
     <string name="spell_nox">Nox</string>
@@ -10,6 +12,7 @@
     <string name="spell_leviosa_desc">Wingardium Leviosa, just a nice cute spell, its not LevIoSsâa is Leviousaa!</string>
     <string name="spell_running">Wizarding around!</string>
     <string name="spell_running_desc"></string>
-    <string name="spell_locked_swipe_warning">Reverse the spell first, Wizard!</string>
+    <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
+    <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
 
 </resources>
