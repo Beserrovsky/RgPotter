@@ -1,13 +1,6 @@
 package com.beserrovsky.rgpotter.widgets;
 
-import android.app.PendingIntent;
-import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.Context;
-import android.content.Intent;
-import android.widget.RemoteViews;
-
-import com.beserrovsky.rgpotter.R;
 
 public class HouseWidgetProvider extends AppWidgetProvider {
 
