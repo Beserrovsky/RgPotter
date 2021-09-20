@@ -3,16 +3,16 @@
     <item
         android:id="@+id/nav_rg"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_logotipo"
         android:title="@string/rg_name"/>
     <item
         android:id="@+id/nav_spells"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_logotipo"
         android:title="@string/spell_name"/>
     <item
         android:id="@+id/nav_curiosity"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_logotipo"
         android:title="@string/curiosity_name"/>
 </menu>

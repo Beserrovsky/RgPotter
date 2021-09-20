@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">RgPotter</string>
 
+    <!-- Houses -->
+    <string name="house_Gryffindor"></string>
+    <string name="house_Hufflepuff"></string>
+    <string name="house_Ravenclaw"></string>
+    <string name="house_Slytherin"></string>
+    <string name="house_None"></string>
+
     <!-- Bottom Navbar -->
     <string name="rg_name">RG</string>
     <string name="spell_name">Spells</string>
