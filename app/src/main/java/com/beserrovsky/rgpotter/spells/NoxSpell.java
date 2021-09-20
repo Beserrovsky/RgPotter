@@ -13,6 +13,7 @@ public class NoxSpell extends Spell {
 
     @Override
     public int Update(int a){
+        // TODO: Add sensors
         return 1;
     }
 

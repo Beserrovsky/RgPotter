@@ -11,7 +11,7 @@
         android:theme="@style/Theme.RgPotter">
         <activity
             android:name=".SpellActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

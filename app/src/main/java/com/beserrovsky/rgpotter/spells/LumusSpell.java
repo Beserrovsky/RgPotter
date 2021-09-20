@@ -13,6 +13,7 @@ public class LumusSpell extends Spell {
 
     @Override
     public int Update(int a){
+        // TODO: Add sensors
         return a + 1;
     }
 
