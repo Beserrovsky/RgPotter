@@ -25,7 +25,6 @@ import com.beserrovsky.rgpotter.util.SpellFeedbackView;
 public class SpellFragment extends Fragment {
     public SpellFragment() {}
 
-    final MainActivity ctx = (MainActivity) getActivity();
     Spell[] Spells        = { new LumusSpell(this), new LeviosaSpell(this) };
     Spell[] ReverseSpells = { new NoxSpell(this) ,              null          };
 
@@ -52,6 +51,18 @@ public class SpellFragment extends Fragment {
         descTextView = view.findViewById(R.id.spellDescTextView);
         constraintLayout = view.findViewById(R.id.spellContentConstraint);
         feedbackView = view.findViewById(R.id.spellFeedbackView);
+        feedbackView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(running) {
+                    Toast.makeText(getContext(), R.string.spell_locked_swipe_running, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(reverse) ReverseSpells[index].Run();
+                else Spells[index].Run();
+            }
+        });
         SetSwipeEvents();
         UpdateState();
         super.onViewCreated(view, savedInstanceState);
@@ -62,9 +73,9 @@ public class SpellFragment extends Fragment {
             this.index = i;
             UpdateState();
         }else if(reverse){
-            Toast.makeText(ctx, R.string.spell_locked_swipe_reverse, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.spell_locked_swipe_reverse, Toast.LENGTH_SHORT).show();
         }else if(running){
-            Toast.makeText(ctx, R.string.spell_locked_swipe_running, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.spell_locked_swipe_running, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -89,17 +100,6 @@ public class SpellFragment extends Fragment {
     private boolean running;
     public void setRunning(boolean r){ running = r; UpdateState();}
 
-    public void RunSpell(View v)
-    {
-        if(running) {
-            Toast.makeText(ctx, R.string.spell_locked_swipe_running, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(reverse) ReverseSpells[index].Run();
-        else Spells[index].Run();
-    }
-
     public void Success() {
         if (reverse) reverse = false;
         else if(ReverseSpells[index]!=null) reverse = true;
@@ -117,7 +117,7 @@ public class SpellFragment extends Fragment {
     public void Back() { SwitchSpell((index == 0 ? Spells.length : index) - 1);}
     @SuppressLint("ClickableViewAccessibility")
     private void SetSwipeEvents() {
-        constraintLayout.setOnTouchListener(new OnSwipeTouchListener(ctx) {
+        constraintLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             @SuppressLint("ClickableViewAccessibility")
             public void onSwipeRight() {
                 ((SpellFragment)((MainActivity) ctx).fragment).Back();
