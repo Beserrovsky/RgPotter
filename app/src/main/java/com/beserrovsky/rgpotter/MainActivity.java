@@ -1,8 +1,6 @@
 package com.beserrovsky.rgpotter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,6 +8,9 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.beserrovsky.rgpotter.ui.curiosity.CuriosityFragment;
+import com.beserrovsky.rgpotter.ui.rg.RgFragment;
+import com.beserrovsky.rgpotter.ui.spells.SpellFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 

@@ -19,6 +19,7 @@
     <string name="spell_running_desc"></string>
     <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
     <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
