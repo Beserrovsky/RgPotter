@@ -1,11 +1,11 @@
 package com.beserrovsky.rgpotter.spells;
 
 import com.beserrovsky.rgpotter.R;
-import com.beserrovsky.rgpotter.SpellActivity;
+import com.beserrovsky.rgpotter.ui.spells.SpellFragment;
 
 public class LumusSpell extends Spell {
 
-    public LumusSpell(SpellActivity ctx) {
+    public LumusSpell(SpellFragment ctx) {
         super(ctx);
         this.NAME = R.string.spell_lumus;
         this.DESC = R.string.spell_lumus_desc;

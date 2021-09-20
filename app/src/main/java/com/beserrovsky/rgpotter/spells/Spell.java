@@ -1,10 +1,9 @@
 package com.beserrovsky.rgpotter.spells;
 
-import android.content.Context;
 import android.os.Handler;
 
 import com.beserrovsky.rgpotter.R;
-import com.beserrovsky.rgpotter.SpellActivity;
+import com.beserrovsky.rgpotter.ui.spells.SpellFragment;
 
 public abstract class Spell{
 
@@ -15,9 +14,9 @@ public abstract class Spell{
             NAME = R.string.spell_null,
             DESC = R.string.spell_null_desc;
 
-    private final SpellActivity ctx;
+    private final SpellFragment ctx;
 
-    public Spell(SpellActivity ctx){
+    public Spell(SpellFragment ctx){
         this.ctx = ctx;
     }
 

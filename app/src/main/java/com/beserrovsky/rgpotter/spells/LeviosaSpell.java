@@ -1,11 +1,11 @@
 package com.beserrovsky.rgpotter.spells;
 
 import com.beserrovsky.rgpotter.R;
-import com.beserrovsky.rgpotter.SpellActivity;
+import com.beserrovsky.rgpotter.ui.spells.SpellFragment;
 
 public class LeviosaSpell extends Spell {
 
-    public LeviosaSpell(SpellActivity ctx) {
+    public LeviosaSpell(SpellFragment ctx) {
         super(ctx);
         this.NAME = R.string.spell_leviosa;
         this.DESC = R.string.spell_leviosa_desc;

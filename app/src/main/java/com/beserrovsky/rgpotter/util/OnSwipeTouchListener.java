@@ -1,12 +1,9 @@
 package com.beserrovsky.rgpotter.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.beserrovsky.rgpotter.SpellActivity;
 
 // Thanks to Abdul Kawee on https://stackoverflow.com/questions/43584529/swipe-left-right-changes-activity!
 public class OnSwipeTouchListener implements View.OnTouchListener {

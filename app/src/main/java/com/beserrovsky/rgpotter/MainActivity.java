@@ -37,28 +37,30 @@ public class MainActivity extends AppCompatActivity{
         displayView(R.id.nav_rg);
     }
 
+    public Fragment fragment;
+    String title;
     // HUGE Thanks to Ojonugwa Jude Ochalifu on https://stackoverflow.com/questions/32944798/switch-between-fragments-with-onnavigationitemselected-in-new-navigation-drawer
     @SuppressLint("NonConstantResourceId")
     public void displayView(int viewId) {
+        fragment = null;
+        title = getString(R.string.app_name);
 
-        Fragment fragment = null;
-        String title = getString(R.string.app_name);
-
-        // TODO: SWITCH
-        if (viewId == R.id.nav_rg) {
-            fragment = new RgFragment();
-            title  = getString(R.string.rg_name);
-            viewIsAtHome = true;
-        }
-        if (viewId == R.id.nav_spells) {
-            fragment = new SpellFragment();
-            title = getString(R.string.spell_name);
-            viewIsAtHome = false;
-        }
-        if (viewId == R.id.nav_curiosity) {
-            fragment = new CuriosityFragment();
-            title = getString(R.string.curiosity_name);
-            viewIsAtHome = false;
+        switch(viewId){
+            case R.id.nav_rg:
+                fragment = new RgFragment();
+                title = getString(R.string.rg_name);
+                viewIsAtHome = true;
+                break;
+            case R.id.nav_spells:
+                fragment = new SpellFragment();
+                title = getString(R.string.spell_name);
+                viewIsAtHome = false;
+                break;
+            case R.id.nav_curiosity:
+                fragment = new CuriosityFragment();
+                title = getString(R.string.curiosity_name);
+                viewIsAtHome = false;
+                break;
         }
 
         if (fragment != null) {

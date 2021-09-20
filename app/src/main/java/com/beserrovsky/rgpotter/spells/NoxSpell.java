@@ -1,11 +1,11 @@
 package com.beserrovsky.rgpotter.spells;
 
 import com.beserrovsky.rgpotter.R;
-import com.beserrovsky.rgpotter.SpellActivity;
+import com.beserrovsky.rgpotter.ui.spells.SpellFragment;
 
 public class NoxSpell extends Spell {
 
-    public NoxSpell(SpellActivity ctx) {
+    public NoxSpell(SpellFragment ctx) {
         super(ctx);
         this.NAME = R.string.spell_nox;
         this.DESC = R.string.spell_nox_desc;
