@@ -1,5 +1,6 @@
 package com.beserrovsky.rgpotter.data.login;
 
+import com.beserrovsky.rgpotter.data.RepositoryCallback;
 import com.beserrovsky.rgpotter.data.Result;
 
 import java.net.HttpURLConnection;
@@ -43,7 +44,7 @@ public class LoginRepository {
             httpConnection.setDoOutput(true);
             httpConnection.getOutputStream().write(jsonBody.getBytes("utf-8"));
 
-            String loginResponse = JWTParser.parse(httpConnection.getInputStream());
+            String loginResponse = new JWTParser().parse(httpConnection.getInputStream());
             return new Result.Success<String>(loginResponse);
         } catch (Exception e) {
             return new Result.Error<String>(e);

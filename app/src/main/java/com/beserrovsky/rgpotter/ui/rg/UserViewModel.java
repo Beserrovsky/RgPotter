@@ -1,20 +1,16 @@
 package com.beserrovsky.rgpotter.ui.rg;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.beserrovsky.rgpotter.R;
 import com.beserrovsky.rgpotter.data.Result;
 import com.beserrovsky.rgpotter.data.login.LoginRepository;
-import com.beserrovsky.rgpotter.data.login.RepositoryCallback;
+import com.beserrovsky.rgpotter.data.RepositoryCallback;
 import com.beserrovsky.rgpotter.data.user.UserRepository;
 import com.beserrovsky.rgpotter.models.UserModel;
 
