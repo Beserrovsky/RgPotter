@@ -9,17 +9,19 @@ import androidx.lifecycle.ViewModelProvider;
 import com.beserrovsky.rgpotter.data.login.LoginRepository;
 import com.beserrovsky.rgpotter.data.user.UserRepository;
 
-public class UserViewModelFactory implements ViewModelProvider.Factory {
+public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
-    private UserRepository mUserRepository;
+    private Context mContext;
+    private LoginRepository mLoginRepository;
 
-    public UserViewModelFactory(UserRepository userRepository) {
-        mUserRepository = userRepository;
+    public LoginViewModelFactory(Context Context, LoginRepository loginRepository) {
+        mLoginRepository = loginRepository;
+        mContext = Context;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new UserViewModel(mUserRepository);
+        return (T) new LoginViewModel(mContext, mLoginRepository);
     }
 }

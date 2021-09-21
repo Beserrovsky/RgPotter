@@ -34,7 +34,7 @@ public class LoginRepository {
         });
     }
 
-    public Result<String> makeSynchronousLoginRequest(String jsonBody) {
+    private Result<String> makeSynchronousLoginRequest(String jsonBody) {
         try {
             URL url = new URL(loginUrl);
             HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
