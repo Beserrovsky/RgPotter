@@ -16,10 +16,9 @@ public class UserParser extends Parser<UserModel> {
         StringBuilder sb = new StringBuilder();
         String line;
         while ((line = br.readLine()) != null) {
-            sb.append(line + "\n");
+            sb.append(line).append("\n");
         }
         br.close();
-        UserModel user = new Gson().fromJson(sb.toString(), UserModel.class);
-        return user;
+        return new Gson().fromJson(sb.toString(), UserModel.class);
     }
 }

@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.beserrovsky.rgpotter.data.RepositoryCallback;
 import com.beserrovsky.rgpotter.data.Result;
 import com.beserrovsky.rgpotter.data.user.UserRepository;
 import com.beserrovsky.rgpotter.models.UserModel;
@@ -18,7 +17,7 @@ public class UserViewModel extends ViewModel {
         this.userRepository = userRepository;
     }
 
-    private final MutableLiveData<UserModel> user = new MutableLiveData<UserModel>();
+    private final MutableLiveData<UserModel> user = new MutableLiveData<>();
 
     public LiveData<UserModel> getUser() {
         return user;
@@ -33,14 +32,11 @@ public class UserViewModel extends ViewModel {
     }
 
     public void fetchUser() {
-        userRepository.makeGetRequest(new RepositoryCallback<UserModel>() {
-            @Override
-            public void onComplete(Result<UserModel> result) {
-                if (result instanceof Result.Success) {
-                    setUser(((Result.Success<UserModel>) result).data);
-                } else {
-                    Log.e("User", ((Result.Error<UserModel>) result).exception.toString());
-                }
+        userRepository.makeGetRequest(result -> {
+            if (result instanceof Result.Success) {
+                setUser(((Result.Success<UserModel>) result).data);
+            } else {
+                Log.e("User", ((Result.Error<UserModel>) result).exception.toString());
             }
         });
     }

@@ -5,6 +5,7 @@ import com.beserrovsky.rgpotter.data.Result;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
 
 public class LoginRepository {
@@ -20,16 +21,13 @@ public class LoginRepository {
     }
 
     public void makeLoginRequest(final String jsonBody, final RepositoryCallback<String> callback) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Result<String> result = makeSynchronousLoginRequest(jsonBody);
-                    callback.onComplete(result);
-                } catch (Exception e) {
-                    Result<String> errorResult = new Result.Error<>(e);
-                    callback.onComplete(errorResult);
-                }
+        executor.execute(() -> {
+            try {
+                Result<String> result = makeSynchronousLoginRequest(jsonBody);
+                callback.onComplete(result);
+            } catch (Exception e) {
+                Result<String> errorResult = new Result.Error<>(e);
+                callback.onComplete(errorResult);
             }
         });
     }
@@ -42,12 +40,12 @@ public class LoginRepository {
             httpConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             httpConnection.setRequestProperty("Accept", "application/json");
             httpConnection.setDoOutput(true);
-            httpConnection.getOutputStream().write(jsonBody.getBytes("utf-8"));
+            httpConnection.getOutputStream().write(jsonBody.getBytes(StandardCharsets.UTF_8));
 
-            String loginResponse = new JWTParser().parse(httpConnection.getInputStream());
-            return new Result.Success<String>(loginResponse);
+            String loginResponse = responseParser.parse(httpConnection.getInputStream());
+            return new Result.Success<>(loginResponse);
         } catch (Exception e) {
-            return new Result.Error<String>(e);
+            return new Result.Error<>(e);
         }
     }
 
