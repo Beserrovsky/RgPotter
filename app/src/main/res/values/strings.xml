@@ -27,4 +27,9 @@
     <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
     <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
 
+    <!-- Login -->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_text">Login!</string>
+    <string name="saveCredentials_text">Save Credentials</string>
 </resources>

@@ -1,20 +1,20 @@
 package com.beserrovsky.rgpotter.models;
 
 public class UserModel {
-    public String Email;
-    public String Name;
-    public String House_ID;
-    public House House;
+    public String email;
+    public String name;
+    public String house_Id;
+    public House house;
     class House {
-        public String ID;
-        public String Name;
+        public String id;
+        public String name;
     }
-    public String Pronoum;
-    public Gender Gender;
+    public String pronoum;
+    public Gender gender;
     class Gender {
-        public String Pronoum;
+        public String pronoum;
     }
-    public String Password;
+    public String password;
     public int lumusSuccess;
     public int lumusFails;
 }

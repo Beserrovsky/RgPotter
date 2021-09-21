@@ -1,5 +1,7 @@
 package com.beserrovsky.rgpotter.data.user;
 
+import android.util.Base64;
+
 import com.beserrovsky.rgpotter.data.RepositoryCallback;
 import com.beserrovsky.rgpotter.data.Result;
 import com.beserrovsky.rgpotter.models.UserModel;
