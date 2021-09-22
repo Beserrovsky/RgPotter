@@ -46,7 +46,8 @@ public class UserViewModel extends ViewModel {
             if (result instanceof Result.Success) {
                 UserCreated.postValue(true);
             } else {
-                Log.e("User Fetch", ((Result.Error<UserModel>) result).exception.toString());
+                Log.e("User Post", ((Result.Error<UserModel>) result).exception.toString());
+                patchUser(user);
             }
         });
     }

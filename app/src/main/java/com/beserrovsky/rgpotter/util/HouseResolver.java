@@ -2,6 +2,9 @@ package com.beserrovsky.rgpotter.util;
 
 import com.beserrovsky.rgpotter.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class HouseResolver {
 
     public static int TitleOf(String house_id) {
@@ -51,4 +54,14 @@ public final class HouseResolver {
 
         return R.color.house_None;
     }
+
+    public List<String> getHouses() {
+        List<String> houses = new ArrayList<String>();
+        houses.add("gryffindor");
+        houses.add("hufflepuff");
+        houses.add("ravenclaw");
+        houses.add("slytherin");
+        return houses;
+    }
+
 }

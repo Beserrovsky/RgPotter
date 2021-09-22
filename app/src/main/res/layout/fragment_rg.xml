@@ -109,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <EditText
             android:id="@+id/rgFormEmailText"
@@ -118,7 +118,8 @@
             android:layout_marginTop="100dp"
             android:ems="10"
             android:hint="@string/user_email"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/rgFormNameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +188,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        tools:visibility="invisible">
+        tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rgUserHouseLayout"
@@ -269,7 +270,7 @@
                     android:id="@+id/rgUserEditBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="16dp"
                     android:text="@string/edit"
                     app:layout_constraintBottom_toTopOf="@+id/rgUserLogoutBtn"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -280,9 +281,9 @@
                     android:id="@+id/rgUserDeleteBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="16dp"
                     android:text="@string/delete"
-                    app:layout_constraintBottom_toTopOf="@+id/rgUserLogoutBtn"
+                    app:layout_constraintBottom_toTopOf="@+id/rgUserEditBtn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent" />

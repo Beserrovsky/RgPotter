@@ -12,11 +12,11 @@
     <string name="delete">Delete</string>
 
     <!-- Houses -->
-    <string name="house_Gryffindor"></string>
-    <string name="house_Hufflepuff"></string>
-    <string name="house_Ravenclaw"></string>
-    <string name="house_Slytherin"></string>
-    <string name="house_None"></string>
+    <string name="house_Gryffindor">Gryffindor</string>
+    <string name="house_Hufflepuff">Hufflepuff</string>
+    <string name="house_Ravenclaw">Ravenclaw</string>
+    <string name="house_Slytherin">Slytherin</string>
+    <string name="house_None">None</string>
 
     <!-- User -->
     <string name="user_email">Email</string>
@@ -43,4 +43,8 @@
     <string name="spell_running_desc"></string>
     <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
     <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
+
+    <!-- RG -->
+    <string name="rg_lumus_success">Lumus Successes</string>
+    <string name="rg_lumus_fails">Lumus Fails</string>
 </resources>

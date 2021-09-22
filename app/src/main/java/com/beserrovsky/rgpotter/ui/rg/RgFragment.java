@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -25,6 +26,8 @@ import com.beserrovsky.rgpotter.data.user.UserRepository;
 import com.beserrovsky.rgpotter.models.UserModel;
 import com.beserrovsky.rgpotter.util.HouseResolver;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -119,10 +122,27 @@ public class RgFragment extends Fragment {
         // Click Handlers
         loginSignupBtn.setOnClickListener(this::SignUp);
         loginBtn.setOnClickListener(this::Login);
-        formSaveBtn.setOnClickListener(this::Create);
+        formSaveBtn.setOnClickListener(this::Save);
         userEditBtn.setOnClickListener(this::Edit);
         userLogoutBtn.setOnClickListener(this::Logout);
         userDeleteBtn.setOnClickListener(this::Delete);
+
+        // Data bindings
+
+        List<String> housesSpinnerArray = new HouseResolver().getHouses();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getActivity(), android.R.layout.simple_spinner_item, housesSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        formHouseSpinner.setAdapter(adapter);
+
+        List<String> pronounsSpinnerArray = new ArrayList<String>();
+        pronounsSpinnerArray.add("M");
+        pronounsSpinnerArray.add("F");
+        adapter = new ArrayAdapter<String>(
+                getActivity(), android.R.layout.simple_spinner_item, pronounsSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        formPronoumSpinner.setAdapter(adapter);
+
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -132,9 +152,14 @@ public class RgFragment extends Fragment {
         userFormUI();
     }
 
-    public void Create(View v) {
-        // TODO: send data
-        // userModel.postUser();
+    public void Save(View v) {
+        UserModel user = new UserModel();
+        user.email = formEmailText.getText().toString();
+        user.name = formNameText.getText().toString();
+        user.house_Id = formHouseSpinner.getSelectedItem().toString();
+        user.pronoum = formPronoumSpinner.getSelectedItem().toString() == "M"? "o" : "a";
+        user.Password = formPasswordText.getText().toString();
+        userModel.postUser(user);
     }
 
     public void Delete(View v) {
@@ -179,8 +204,13 @@ public class RgFragment extends Fragment {
 
         resetLayouts();
         userNameText.setText(user.name);
-        userHouseLayout.setBackgroundColor(HouseResolver.ColorOf(user.house_Id));
-        userHouseImg.setBackgroundResource(HouseResolver.ImageOf(user.house_Id)); //FIXME: NOT WORKING PROPERLY
+        userEmailText.setText(user.email);
+        userLumusText.setText(getString(R.string.rg_lumus_success) + ": " + user.lumusSuccess
+                + " / " + getString(R.string.rg_lumus_fails) + ": " + user.lumusFails);
+        userHouseText.setText(HouseResolver.TitleOf(user.house_Id));
+        userHouseLayout.setBackgroundResource(HouseResolver.ColorOf(user.house_Id));
+        userHouseImg.setImageDrawable(null);
+        userHouseImg.setBackgroundResource(HouseResolver.ImageOf(user.house_Id));
         setLayout(userLayout);
     }
 
@@ -192,6 +222,13 @@ public class RgFragment extends Fragment {
     private void userFormUI(UserModel user) {
         resetLayouts();
         if (user == null) { loginUI(LoginMode.None); return;}
+
+        formEmailText.setText(user.email);
+        formNameText.setText(user.name);
+        formHouseSpinner.setSelection(spinnerGetIndex(formHouseSpinner, user.house_Id));
+        formPronoumSpinner.setSelection(
+                spinnerGetIndex(formPronoumSpinner, user.pronoum == "o"? "M" : "F"));
+
         setLayout(formLayout);
     }
 
@@ -206,6 +243,16 @@ public class RgFragment extends Fragment {
     private void setLayout(ConstraintLayout layout){
         loadingLayout.setVisibility(View.INVISIBLE);
         layout.setVisibility(View.VISIBLE);
+    }
+
+    private int spinnerGetIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
     }
 }
 
