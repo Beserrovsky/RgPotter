@@ -14,7 +14,7 @@ public class UserModel {
     class Gender {
         public String pronoum;
     }
-    public String password;
+    public String Password;
     public int lumusSuccess;
     public int lumusFails;
 }

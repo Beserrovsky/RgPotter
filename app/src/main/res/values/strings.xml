@@ -1,12 +1,29 @@
 <resources>
     <string name="app_name">RgPotter</string>
 
+    <!-- Imperative -->
+    <string name="signup">Sign up</string>
+    <string name="login">Login!</string>
+    <string name="saveCredentials">Save Credentials</string>
+    <string name="wrongCredentials">Credentials invalid!</string>
+    <string name="logout">Logout</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
     <!-- Houses -->
     <string name="house_Gryffindor"></string>
     <string name="house_Hufflepuff"></string>
     <string name="house_Ravenclaw"></string>
     <string name="house_Slytherin"></string>
     <string name="house_None"></string>
+
+    <!-- User -->
+    <string name="user_email">Email</string>
+    <string name="user_name">Name</string>
+    <string name="user_house">House</string>
+    <string name="user_pronoum">Pronoum</string>
+    <string name="user_password">Password</string>
 
     <!-- Bottom Navbar -->
     <string name="rg_name">RG</string>
@@ -26,13 +43,4 @@
     <string name="spell_running_desc"></string>
     <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
     <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
-
-    <!-- Login -->
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
-    <string name="login_text">Login!</string>
-    <string name="saveCredentials_text">Save Credentials</string>
-    <string name="createAccount">Sign In</string>
-    <string name="logout">Logout</string>
-    <string name="wrong_credentials">Credentials invalid!</string>
 </resources>

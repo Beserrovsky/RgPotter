@@ -21,4 +21,17 @@ public class UserParser extends Parser<UserModel> {
         br.close();
         return new Gson().fromJson(sb.toString(), UserModel.class);
     }
+
+    public String parse(UserModel user){
+        return "{ " +
+                "email: \"" + user.email + "\", " +
+                "name: \"" + user.name + "\", " +
+                "house_Id: \"" + user.house_Id + "\", " +
+                "pronoum: \"" + user.pronoum + "\", " +
+                "password: \"" + user.Password + "\", " +
+                "lumusSuccesses: \"" + user.lumusSuccess + "\", " +
+                "lumusFails: \"" + user.lumusFails + "\" " +
+                "}";
+    }
+
 }

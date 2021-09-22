@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.beserrovsky.rgpotter.data.Result;
+import com.beserrovsky.rgpotter.data.user.UserParser;
 import com.beserrovsky.rgpotter.data.user.UserRepository;
 import com.beserrovsky.rgpotter.models.UserModel;
 
@@ -27,16 +28,46 @@ public class UserViewModel extends ViewModel {
         this.user.postValue(user);
     }
 
-    public void delUser() {
-        throw new UnsupportedOperationException();
-    }
-
     public void fetchUser() {
         userRepository.makeGetRequest(result -> {
             if (result instanceof Result.Success) {
                 setUser(((Result.Success<UserModel>) result).data);
             } else {
-                Log.e("User", ((Result.Error<UserModel>) result).exception.toString());
+                Log.e("User Fetch", ((Result.Error<UserModel>) result).exception.toString());
+            }
+        });
+    }
+
+    public MutableLiveData<Boolean> UserCreated = new MutableLiveData<Boolean>();
+
+    public void postUser(UserModel user) {
+        String json = new UserParser().parse(user);
+        userRepository.makePostRequest(json, result -> {
+            if (result instanceof Result.Success) {
+                UserCreated.postValue(true);
+            } else {
+                Log.e("User Fetch", ((Result.Error<UserModel>) result).exception.toString());
+            }
+        });
+    }
+
+    public void patchUser(UserModel user) {
+        String json = new UserParser().parse(user);
+        userRepository.makePatchRequest(json ,result -> {
+            if (result instanceof Result.Success) {
+                setUser(((Result.Success<UserModel>) result).data);
+            } else {
+                Log.e("User Fetch", ((Result.Error<UserModel>) result).exception.toString());
+            }
+        });
+    }
+
+    public void delUser() {
+        userRepository.makeDeleteRequest(result -> {
+            if (result instanceof Result.Success) {
+                setUser(null);
+            } else {
+                Log.e("User Delete", ((Result.Error<UserModel>) result).exception.toString());
             }
         });
     }

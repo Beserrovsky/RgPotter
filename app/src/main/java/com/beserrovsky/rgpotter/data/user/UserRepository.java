@@ -53,7 +53,7 @@ public class UserRepository {
     public void makePatchRequest(final String jsonBody, final RepositoryCallback<UserModel> callback) {
         executor.execute(() -> {
             try {
-                Result<UserModel> result = makeSynchronousPostRequest(jsonBody);
+                Result<UserModel> result = makeSynchronousPatchRequest(jsonBody);
                 callback.onComplete(result);
             } catch (Exception e) {
                 Result<UserModel> errorResult = new Result.Error<>(e);
@@ -62,10 +62,10 @@ public class UserRepository {
         });
     }
 
-    public void makeDeleteRequest(final String jsonBody, final RepositoryCallback<UserModel> callback) {
+    public void makeDeleteRequest(final RepositoryCallback<UserModel> callback) {
         executor.execute(() -> {
             try {
-                Result<UserModel> result = makeSynchronousPostRequest(jsonBody);
+                Result<UserModel> result = makeSynchronousDeleteRequest();
                 callback.onComplete(result);
             } catch (Exception e) {
                 Result<UserModel> errorResult = new Result.Error<>(e);
@@ -127,7 +127,7 @@ public class UserRepository {
         }
     }
 
-    private Result<UserModel> makeSynchronousDeleteRequest(String jsonBody) {
+    private Result<UserModel> makeSynchronousDeleteRequest() {
         try {
             URL url = new URL(userUrl);
             HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
@@ -135,8 +135,6 @@ public class UserRepository {
             httpConnection.setRequestProperty("Authorization", getAuth());
             httpConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             httpConnection.setRequestProperty("Accept", "application/json");
-            httpConnection.setDoOutput(true);
-            httpConnection.getOutputStream().write(jsonBody.getBytes(StandardCharsets.UTF_8));
 
             UserModel postResponse = userParser.parse(httpConnection.getInputStream());
             return new Result.Success<>(postResponse);
