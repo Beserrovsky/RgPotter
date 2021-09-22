@@ -32,4 +32,7 @@
     <string name="password_hint">Password</string>
     <string name="login_text">Login!</string>
     <string name="saveCredentials_text">Save Credentials</string>
+    <string name="createAccount">Sign In</string>
+    <string name="logout">Logout</string>
+    <string name="wrong_credentials">Credentials invalid!</string>
 </resources>

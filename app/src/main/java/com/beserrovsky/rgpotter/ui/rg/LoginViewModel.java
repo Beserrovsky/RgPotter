@@ -69,6 +69,10 @@ public class LoginViewModel extends ViewModel
     }
 
     public void logout() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("saveCredentials", false);
+        editor.commit();
+
         setJWT(null);
     }
 }
