@@ -74,7 +74,7 @@ public class RgFragment extends Fragment {
     TextView loginEmailText, loginPasswordText, loginErrorText,
             formEmailText, formNameText, formPasswordText,
             userEmailText, userNameText, userHouseText, userLumusText;
-    Button loginBtn, loginSignupBtn, formSaveBtn, userLogoutBtn, userEditBtn;
+    Button loginBtn, loginSignupBtn, formSaveBtn, userLogoutBtn, userEditBtn, userDeleteBtn;
     Spinner formHouseSpinner, formPronoumSpinner;
     CheckBox loginCredentialsChk;
     ConstraintLayout userHouseLayout;
@@ -106,9 +106,13 @@ public class RgFragment extends Fragment {
         formPronoumSpinner = view.findViewById(R.id.rgFormPronoumSpinner);
 
         // User
+        userEmailText = view.findViewById(R.id.rgUserEmailText);
         userNameText = view.findViewById(R.id.rgUserNameText);
+        userHouseText = view.findViewById(R.id.rgUserHouseText);
+        userLumusText = view.findViewById(R.id.rgUserLumusText);
         userLogoutBtn = view.findViewById(R.id.rgUserLogoutBtn);
         userEditBtn = view.findViewById(R.id.rgUserEditBtn);
+        userDeleteBtn = view.findViewById(R.id.rgUserDeleteBtn);
         userHouseLayout = view.findViewById(R.id.rgUserHouseLayout);
         userHouseImg = view.findViewById(R.id.rgUserHouseImg);
 
@@ -118,6 +122,7 @@ public class RgFragment extends Fragment {
         formSaveBtn.setOnClickListener(this::Create);
         userEditBtn.setOnClickListener(this::Edit);
         userLogoutBtn.setOnClickListener(this::Logout);
+        userDeleteBtn.setOnClickListener(this::Delete);
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -129,6 +134,11 @@ public class RgFragment extends Fragment {
 
     public void Create(View v) {
         // TODO: send data
+        // userModel.postUser();
+    }
+
+    public void Delete(View v) {
+        userModel.delUser();
     }
 
     public void Login(View v) {
