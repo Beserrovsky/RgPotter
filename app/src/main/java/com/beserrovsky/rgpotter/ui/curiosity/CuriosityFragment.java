@@ -11,7 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.beserrovsky.rgpotter.R;
+import com.beserrovsky.rgpotter.data.character.CharacterParser;
+import com.beserrovsky.rgpotter.data.character.CharacterRepository;
 import com.beserrovsky.rgpotter.models.CharacterModel;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CuriosityFragment extends Fragment {
     public CuriosityFragment() {}
@@ -25,11 +30,18 @@ public class CuriosityFragment extends Fragment {
     CuriosityViewModel model;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        model = new ViewModelProvider(this).get(CuriosityViewModel.class);
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
 
-//        model.getCharacters().observe(getViewLifecycleOwner(), users -> {
-//            // update UI
-//        });
+        CuriosityViewModelFactory curiosityViewModelFactory = new CuriosityViewModelFactory(
+                new CharacterRepository(new CharacterParser(), executorService));
+
+        model = new ViewModelProvider(this, curiosityViewModelFactory).get(CuriosityViewModel.class);
+
+        model.getCharacters().observe(getViewLifecycleOwner(), users -> {
+            // update UI
+        });
+
+        model.fetchCharacters();
 
         super.onViewCreated(view, savedInstanceState);
     }
