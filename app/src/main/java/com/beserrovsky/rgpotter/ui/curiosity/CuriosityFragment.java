@@ -1,6 +1,7 @@
 package com.beserrovsky.rgpotter.ui.curiosity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class CuriosityFragment extends Fragment {
         model = new ViewModelProvider(this, curiosityViewModelFactory).get(CuriosityViewModel.class);
 
         model.getCharacters().observe(getViewLifecycleOwner(), users -> {
-            // update UI
+            Log.i("char", users!=null? users.toString() : "null");
         });
 
         model.fetchCharacters();
@@ -50,7 +51,7 @@ public class CuriosityFragment extends Fragment {
         loadingLayout = view.findViewById(R.id.curLoadingLayout);
         super.onViewCreated(view, savedInstanceState);
     }
-    
+
     private void resetLayouts(){
         loadingLayout.setVisibility(View.VISIBLE);
     }

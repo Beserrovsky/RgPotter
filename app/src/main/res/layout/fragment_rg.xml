@@ -7,6 +7,87 @@
     android:layout_height="match_parent"
     tools:context=".ui.rg.RgFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rgFormLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/rgFormEmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="@string/user_email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/rgFormNameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/rgFormNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgFormEmailText" />
+
+        <Spinner
+            android:id="@+id/rgFormHouseSpinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgFormNameText"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Spinner
+            android:id="@+id/rgFormPronoumSpinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgFormHouseSpinner"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/rgFormPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/user_password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgFormPronoumSpinner" />
+
+        <Button
+            android:id="@+id/rgFormSaveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgFormPasswordText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <RelativeLayout
         android:id="@+id/rgLoadingLayout"
         android:layout_width="match_parent"
@@ -104,91 +185,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout> <!-- Login -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rgFormLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        tools:visibility="invisible">
-
-        <EditText
-            android:id="@+id/rgFormEmailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:ems="10"
-            android:hint="@string/user_email"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/rgFormNameText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/rgFormNameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/user_name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgFormEmailText" />
-
-        <Spinner
-            android:id="@+id/rgFormHouseSpinner"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgFormNameText" />
-
-        <Spinner
-            android:id="@+id/rgFormPronoumSpinner"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgFormHouseSpinner" />
-
-        <EditText
-            android:id="@+id/rgFormPasswordText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/user_password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgFormPronoumSpinner" />
-
-        <Button
-            android:id="@+id/rgFormSaveBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgFormPasswordText" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout> <!-- Form -->
+    <!-- Form -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rgUserLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rgUserHouseLayout"
@@ -209,37 +213,50 @@
                     android:id="@+id/rgUserNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:textSize="34sp"
+                    app:layout_constraintBottom_toTopOf="@+id/rgUserLumusText"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rgUserHouseImg" />
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toEndOf="@+id/rgUserHouseImg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.22000003"
+                    tools:text="@tools:sample/first_names" />
 
                 <TextView
                     android:id="@+id/rgUserEmailText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/rgUserLumusText"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rgUserNameText" />
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserHouseImg"
+                    app:layout_constraintVertical_bias="0.050000012"
+                    tools:text="@tools:sample/full_names" />
 
                 <TextView
                     android:id="@+id/rgUserHouseText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/rgUserLumusText"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rgUserEmailText" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/rgUserHouseImg"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserNameText"
+                    app:layout_constraintVertical_bias="0.25"
+                    tools:text="@tools:sample/lorem" />
 
                 <TextView
                     android:id="@+id/rgUserLumusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rgUserHouseText" />
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserHouseImg"
+                    app:layout_constraintVertical_bias="0.25"
+                    tools:text="@tools:sample/cities" />
 
                 <ImageView
                     android:id="@+id/rgUserHouseImg"
@@ -256,37 +273,39 @@
 
                 <Button
                     android:id="@+id/rgUserLogoutBtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="94dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="120dp"
                     android:text="@string/logout"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rgUserNameText"
-                    app:layout_constraintVertical_bias="0.656" />
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/rgUserEditBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserLumusText" />
 
                 <Button
                     android:id="@+id/rgUserEditBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="120dp"
                     android:text="@string/edit"
-                    app:layout_constraintBottom_toTopOf="@+id/rgUserLogoutBtn"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintEnd_toStartOf="@+id/rgUserLogoutBtn"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserLumusText" />
 
                 <Button
                     android:id="@+id/rgUserDeleteBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="28dp"
                     android:text="@string/delete"
-                    app:layout_constraintBottom_toTopOf="@+id/rgUserEditBtn"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserLogoutBtn"
+                    app:rippleColor="@color/design_default_color_error" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
