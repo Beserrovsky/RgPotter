@@ -25,49 +25,65 @@ public class SpellFeedbackView extends View {
     }
 
     private class FeedbackCircle {
-        Paint paint;
-        public FeedbackCircle(){ this.paint = new Paint(Paint.ANTI_ALIAS_FLAG);}
+        public static final int MAX_RADIUS = 400;
 
-        public final int MAX_RADIUS = 400;
-        private int radius;
+        Paint paint;
+        public int radius;
+
+        public FeedbackCircle(int aggressiveness, int progress){
+            this.paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            Update(aggressiveness, progress);
+        }
 
         public void Update(int aggressiveness, int progress) {
-            double p = (double)progress/100 * MAX_RADIUS;
-            radius = (int)Math.round(p);
-            int red = (int) (Math.round(aggressiveness)%256);
-            paint.setARGB(255, red, 0, (255 - red));
+            setColor(aggressiveness);
+            setRadius(progress);
         }
 
         public void Render(Canvas canvas){
             canvas.drawCircle(MAX_RADIUS, MAX_RADIUS, radius, paint);
         }
+
+        private void setRadius(int progress){
+            radius = (int)Math.round(((double) progress) / 100 * MAX_RADIUS);
+        }
+
+        private final int RED = 0, GREEN = 0, BLUE = 255;
+        private void setColor(int aggressiveness){
+            aggressiveness = aggressiveness % 256;
+            int red = (int)Math.round(((double) aggressiveness) / 100 * 255);
+            paint.setARGB(255, RED + red, GREEN, BLUE - red);
+        }
     }
-    
+    public final int
+            DEFAULT_AGGRESSIVENESS = 0,
+            DEFAULT_PROGRESS = 75;
+
     private FeedbackCircle circle;
-    public final int DEFAULT_AGGRESSIVENESS = 30, DEFAULT_PROGRESS = 75;
-    int aggressiveness = DEFAULT_AGGRESSIVENESS, progress = DEFAULT_PROGRESS;
-    
-    private void init(){
-        this.circle = new FeedbackCircle();
+    private int
+            aggressiveness = DEFAULT_AGGRESSIVENESS,
+            progress = DEFAULT_PROGRESS;
+
+    private void init() {
+        this.circle = new FeedbackCircle(DEFAULT_AGGRESSIVENESS, DEFAULT_PROGRESS);
     }
 
-    public void Update(int aggressiveness, int progress)
-    {
+    public void Update(int aggressiveness, int progress) {
         this.aggressiveness = aggressiveness;
         this.progress = progress;
+        circle.Update(aggressiveness, progress);
         invalidate();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        circle.Update(aggressiveness, progress);
         circle.Render(canvas);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(circle.MAX_RADIUS*2, circle.MAX_RADIUS*2);
+        setMeasuredDimension(FeedbackCircle.MAX_RADIUS * 2, FeedbackCircle.MAX_RADIUS * 2);
     }
 }

@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RgPotter">
         <activity
-            android:name=".SpellActivity"
-            android:exported="true"/>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,4 +20,5 @@
         </activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

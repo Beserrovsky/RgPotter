@@ -1,7 +1,42 @@
 <resources>
     <string name="app_name">RgPotter</string>
 
-    <!-- Spell Activity -->
+    <!-- Imperative -->
+    <string name="signup">Sign up</string>
+    <string name="login">Login!</string>
+    <string name="saveCredentials">Save Credentials</string>
+    <string name="wrongCredentials">Credentials invalid!</string>
+    <string name="logout">Logout</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+    <!-- Houses -->
+    <string name="house_Gryffindor">Gryffindor</string>
+    <string name="house_Hufflepuff">Hufflepuff</string>
+    <string name="house_Ravenclaw">Ravenclaw</string>
+    <string name="house_Slytherin">Slytherin</string>
+    <string name="house_None">None</string>
+
+    <!-- User -->
+    <string name="user_email">Email</string>
+    <string name="user_name">Name</string>
+    <string name="user_house">House</string>
+    <string name="user_pronoum">Pronoum</string>
+    <string name="user_password">Password</string>
+
+    <!-- Bottom Navbar -->
+    <string name="rg_name">RG</string>
+    <string name="spell_name">Spells</string>
+    <string name="curiosity_name">Curiosity</string>
+
+    <!-- RG -->
+    <string name="rg_lumus_success">Lumus Successes</string>
+    <string name="rg_lumus_fails">Lumus Fails</string>
+
+    <!-- Spell -->
+    <string name="spell_null">Spell Null</string>
+    <string name="spell_null_desc">Desc Null</string>
     <string name="spell_lumus">Lumus</string>
     <string name="spell_lumus_desc">Lumus turns everything on, and if it happens that you have yourself a flashlight, it might work, just saying tho</string>
     <string name="spell_nox">Nox</string>
@@ -10,6 +45,12 @@
     <string name="spell_leviosa_desc">Wingardium Leviosa, just a nice cute spell, its not LevIoSsâa is Leviousaa!</string>
     <string name="spell_running">Wizarding around!</string>
     <string name="spell_running_desc"></string>
-    <string name="spell_locked_swipe_warning">Reverse the spell first, Wizard!</string>
+    <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
+    <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
 
+    <!-- Curiosity -->
+    <string name="cur_curiosities_random_title">Random Character</string>
+    <string name="cur_curiosities_random_desc">Get a random Character from our API</string>
+    <string name="cur_curiosities_harry_title">Harry Potter</string>
+    <string name="cur_curiosities_harry_desc">Take a look at the famous Harry Potter record!</string>
 </resources>
