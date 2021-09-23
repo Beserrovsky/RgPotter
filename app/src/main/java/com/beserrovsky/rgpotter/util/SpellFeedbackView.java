@@ -84,6 +84,6 @@ public class SpellFeedbackView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(circle.MAX_RADIUS * 2, circle.MAX_RADIUS * 2);
+        setMeasuredDimension(FeedbackCircle.MAX_RADIUS * 2, FeedbackCircle.MAX_RADIUS * 2);
     }
 }

@@ -24,11 +24,11 @@ public class CuriosityViewModel extends ViewModel {
         this.characterRepository = characterRepository;
     }
 
-    private MutableLiveData<Integer> UiIndex = new MutableLiveData<Integer>(0);
+    private final MutableLiveData<Integer> UiIndex = new MutableLiveData<Integer>(0);
 
     public LiveData<Integer> getUiIndex() { return UiIndex; }
 
-    private MutableLiveData<CharacterModel[]> Characters = new MutableLiveData<>(new CharacterModel[0]);
+    private final MutableLiveData<CharacterModel[]> Characters = new MutableLiveData<>(new CharacterModel[0]);
 
     public Curiosity[] Curiosities = new Curiosity[]{
             new Curiosity(

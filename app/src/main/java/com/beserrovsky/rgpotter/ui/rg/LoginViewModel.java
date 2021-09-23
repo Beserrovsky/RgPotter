@@ -33,7 +33,7 @@ public class LoginViewModel extends ViewModel
 
     private String email, password;
 
-    private MutableLiveData<Boolean> saveCredentials = new MutableLiveData<Boolean>(false);
+    private final MutableLiveData<Boolean> saveCredentials = new MutableLiveData<Boolean>(false);
     private final MutableLiveData<String> jwt = new MutableLiveData<>();
 
     public LiveData<String> getJWT() {

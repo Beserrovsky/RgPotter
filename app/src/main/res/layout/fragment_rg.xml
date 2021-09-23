@@ -224,10 +224,11 @@
                     android:id="@+id/rgUserNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:textSize="34sp"
                     app:layout_constraintBottom_toTopOf="@+id/rgUserLumusText"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/rgUserHouseImg"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.22000003"
@@ -249,12 +250,13 @@
                     android:id="@+id/rgUserHouseText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/rgUserLumusText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/rgUserHouseImg"
                     app:layout_constraintTop_toBottomOf="@+id/rgUserNameText"
-                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintVertical_bias="0.32"
                     tools:text="@tools:sample/lorem" />
 
                 <TextView
@@ -271,8 +273,8 @@
 
                 <ImageView
                     android:id="@+id/rgUserHouseImg"
-                    android:layout_width="148dp"
-                    android:layout_height="134dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:src="@drawable/ic_hogwarts"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

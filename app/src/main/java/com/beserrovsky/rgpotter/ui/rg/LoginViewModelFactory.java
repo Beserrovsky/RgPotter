@@ -11,8 +11,8 @@ import com.beserrovsky.rgpotter.data.user.UserRepository;
 
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
-    private Context mContext;
-    private LoginRepository mLoginRepository;
+    private final Context mContext;
+    private final LoginRepository mLoginRepository;
 
     public LoginViewModelFactory(Context Context, LoginRepository loginRepository) {
         mLoginRepository = loginRepository;

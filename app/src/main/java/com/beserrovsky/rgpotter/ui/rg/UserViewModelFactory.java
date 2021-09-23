@@ -11,7 +11,7 @@ import com.beserrovsky.rgpotter.data.user.UserRepository;
 
 public class UserViewModelFactory implements ViewModelProvider.Factory {
 
-    private UserRepository mUserRepository;
+    private final UserRepository mUserRepository;
 
     public UserViewModelFactory(UserRepository userRepository) {
         mUserRepository = userRepository;

@@ -157,7 +157,7 @@ public class RgFragment extends Fragment {
         user.email = formEmailText.getText().toString();
         user.name = formNameText.getText().toString();
         user.house_Id = formHouseSpinner.getSelectedItem().toString();
-        user.pronoum = formPronoumSpinner.getSelectedItem().toString() == "M"? "o" : "a";
+        user.pronoum = formPronoumSpinner.getSelectedItem().toString().equals("M") ? "o" : "a";
         user.Password = formPasswordText.getText().toString();
         userModel.postUser(user);
     }
@@ -227,7 +227,7 @@ public class RgFragment extends Fragment {
         formNameText.setText(user.name);
         formHouseSpinner.setSelection(spinnerGetIndex(formHouseSpinner, user.house_Id));
         formPronoumSpinner.setSelection(
-                spinnerGetIndex(formPronoumSpinner, user.pronoum == "o"? "M" : "F"));
+                spinnerGetIndex(formPronoumSpinner, user.pronoum.equals("o") ? "M" : "F"));
 
         setLayout(formLayout);
     }

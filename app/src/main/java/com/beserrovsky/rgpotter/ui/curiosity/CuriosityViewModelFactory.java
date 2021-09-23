@@ -8,7 +8,7 @@ import com.beserrovsky.rgpotter.data.character.CharacterRepository;
 
 public class CuriosityViewModelFactory implements ViewModelProvider.Factory {
 
-    private CharacterRepository mCharacterRepository;
+    private final CharacterRepository mCharacterRepository;
 
     public CuriosityViewModelFactory(CharacterRepository characterRepository) {
         mCharacterRepository = characterRepository;
