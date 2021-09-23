@@ -9,6 +9,8 @@ public final class HouseResolver {
 
     public static int TitleOf(String house_id) {
 
+        if (house_id == null) return R.string.house_None;
+
         switch (house_id.toLowerCase()){
             case "gryffindor":
                 return R.string.house_Gryffindor;
@@ -25,6 +27,8 @@ public final class HouseResolver {
 
     public static int ImageOf(String house_id) {
 
+        if (house_id == null) return R.drawable.ic_hogwarts;
+
         switch (house_id.toLowerCase()){
             case "gryffindor":
                 return R.drawable.ic_gryffindor;
@@ -40,6 +44,8 @@ public final class HouseResolver {
     }
 
     public static int ColorOf(String house_id) {
+
+        if (house_id == null) return R.color.house_None;
 
         switch (house_id.toLowerCase()){
             case "gryffindor":

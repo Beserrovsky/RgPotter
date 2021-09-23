@@ -30,7 +30,11 @@
     <string name="spell_name">Spells</string>
     <string name="curiosity_name">Curiosity</string>
 
-    <!-- Spell Activity -->
+    <!-- RG -->
+    <string name="rg_lumus_success">Lumus Successes</string>
+    <string name="rg_lumus_fails">Lumus Fails</string>
+
+    <!-- Spell -->
     <string name="spell_null">Spell Null</string>
     <string name="spell_null_desc">Desc Null</string>
     <string name="spell_lumus">Lumus</string>
@@ -44,7 +48,9 @@
     <string name="spell_locked_swipe_reverse">Reverse the spell first, Wizard!</string>
     <string name="spell_locked_swipe_running">Wait for the spell complete, Wizard!</string>
 
-    <!-- RG -->
-    <string name="rg_lumus_success">Lumus Successes</string>
-    <string name="rg_lumus_fails">Lumus Fails</string>
+    <!-- Curiosity -->
+    <string name="cur_curiosities_random_title">Random Character</string>
+    <string name="cur_curiosities_random_desc">Get a random Character from our API</string>
+    <string name="cur_curiosities_harry_title">Harry Potter</string>
+    <string name="cur_curiosities_harry_desc">Take a look at the famous Harry Potter record!</string>
 </resources>
