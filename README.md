@@ -16,7 +16,7 @@ Além dessa, o projeto tem sua própria API, desenvolvida em .NET CORE e hospeda
 
 ## Versões
 
-- ### Broken Version
+- ### [Broken Version](https://github.com/Beserrovsky/RgPotter/releases/tag/broken-version)
 
 		Contibuidores: Felipe Beserra e Gabrielle Neves
 
